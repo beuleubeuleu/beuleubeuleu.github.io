@@ -52,19 +52,11 @@ const menuItems: {
                 ))
             }
         </nav>
-            <Socials></Socials>
     </div>
 </header>
 
 <style lang="scss">
-    .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        max-width: 1196px;
-        margin : auto;
-    }
+
     .header {
         --bgHover: #f5fafb;
         --colorHover: #111;
@@ -75,6 +67,15 @@ const menuItems: {
         z-index: 5;
         top: 0;
         background-color: white;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 1196px;
+        margin : auto;
+    }
 
     a {
         text-decoration: none;
@@ -103,6 +104,7 @@ const menuItems: {
         padding: .5em 0;
         border-top: solid 1px #e5e5e5;
         width: 100%;
+        padding-block: 75%;
     }
 
 
@@ -177,13 +179,14 @@ const menuItems: {
     }
     }
 
-    @media only screen and (min-width: 900px) { .container{
+    @media only screen and (min-width: 900px) {
+        .container{
         display         : flex;
         flex-direction  : row;
         align-items     : center;
         justify-content : center;
         margin          : 0 auto 3.2em;
-    }
+        }
 
         .header__logo {
             padding-block: 6px;

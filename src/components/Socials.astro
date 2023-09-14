@@ -1,13 +1,9 @@
 ---
-interface Props {
-  isHeader: boolean
-}
 
-const {isHeader = true} = Astro.props
 
 ---
 
-<div class="socials" style={isHeader ? "display:none": ""}>
+<div class="socials">
     <a href="/" aria-label="Voir ma page linked in">
         <img src="/logo/linkedIn.svg" alt="logo linked in">
     </a>
