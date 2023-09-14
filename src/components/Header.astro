@@ -25,36 +25,46 @@ const menuItems: {
 ---
 
 <header class="header">
-    <input aria-label="Mobile Menu" type="checkbox" class="header__burger"/>
+    <div class="container">
+        <input aria-label="Mobile Menu" type="checkbox" class="header__burger"/>
 
-    <a href="/" class="header__logo">
-       <img src="/logo/contact.svg">
-    </a>
+        <a href="/" class="header__logo">
+            <img src="/logo/contact.svg">
+        </a>
 
-    <nav class="header__links">
-        {
-            menuItems.map((item) => (
-                <>
-                    { item.children && (
-                        <a class="header__link" href={ item.path }>{ item.title }</a>
-                        <div class="header__sublinks">
-                            { item.children.map((children) => (
-                                <a href={ children.path }>{ children.title }</a>
-                            )) }
-                        </div>
-                    ) }
+        <nav class="header__links">
+            {
+                menuItems.map((item) => (
+                    <>
+                        { item.children && (
+                            <a class="header__link" href={ item.path }>{ item.title }</a>
+                            <div class="header__sublinks">
+                                { item.children.map((children) => (
+                                    <a href={ children.path }>{ children.title }</a>
+                                )) }
+                            </div>
+                        ) }
 
-                    { !item.children && (
-                        <a class="header__link" href={ item.path }>{ item.title }</a>
-                    ) }
-                </>
-            ))
-        }
-    <Socials></Socials>
-    </nav>
+                        { !item.children && (
+                            <a class="header__link" href={ item.path }>{ item.title }</a>
+                        ) }
+                    </>
+                ))
+            }
+        </nav>
+            <Socials></Socials>
+    </div>
 </header>
 
 <style lang="scss">
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 1196px;
+        margin : auto;
+    }
     .header {
         --bgHover: #f5fafb;
         --colorHover: #111;
@@ -64,10 +74,6 @@ const menuItems: {
         position: sticky;
         z-index: 5;
         top: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
         background-color: white;
 
     a {
@@ -171,12 +177,13 @@ const menuItems: {
     }
     }
 
-    @media only screen and (min-width: 900px) {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 3.2em;
+    @media only screen and (min-width: 900px) { .container{
+        display         : flex;
+        flex-direction  : row;
+        align-items     : center;
+        justify-content : center;
+        margin          : 0 auto 3.2em;
+    }
 
         .header__logo {
             padding-block: 6px;

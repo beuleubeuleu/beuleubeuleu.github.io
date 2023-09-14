@@ -1,8 +1,13 @@
 ---
+interface Props {
+  isHeader: boolean
+}
+
+const {isHeader = true} = Astro.props
 
 ---
 
-<div class="socials">
+<div class="socials" style={isHeader ? "display:none": ""}>
     <a href="/" aria-label="Voir ma page linked in">
         <img src="/logo/linkedIn.svg" alt="logo linked in">
     </a>
@@ -13,14 +18,16 @@
 
 
 <style>
+  img {
+    max-width  : 32px;
+    max-height : 32px;
+  }
+
   .socials {
     display         : flex;
     justify-content : center;
     align-items     : center;
-    gap             : .5em;}
-
-  img {
-    max-width  : 32px;
-    max-height : 32px;
+    gap             : .5em;
+    align-self      : center;
   }
 </style>

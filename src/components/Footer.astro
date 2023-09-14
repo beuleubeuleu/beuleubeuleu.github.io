@@ -32,7 +32,7 @@ const menuItems = [
 
         <div class="footer-card">
             <p class="footer-card__title">Restez connecté!</p>
-            <Socials></Socials>
+            <Socials isHeader={false}/>
         </div>
 
     </section>
@@ -43,7 +43,8 @@ const menuItems = [
 
 <style>
   footer {
-    margin-bottom: 1rem;
+      max-width: 1196px;
+      margin   : auto auto 1rem;
   }
 
   .footer-cards {
@@ -97,15 +98,8 @@ const menuItems = [
     color: #333333;
   }
 
-  @media screen and (min-width: 450px) {
-    .footer-cards {
-      display: grid;
-      grid-template-rows: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-    }
-  }
 
-  @media screen and (min-width: 850px) {
+  @media screen and (min-width: 500px) {
     .footer-cards {
       display: flex;
       flex-direction: row;
