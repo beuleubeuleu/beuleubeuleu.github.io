@@ -2,10 +2,11 @@
 import {ViewTransitions} from "astro:transitions"
 import Header            from "../components/Header.astro";
 interface Props {
-	title: string;
+	titre: string;
+	description: string;
 }
 
-const { title, description } = Astro.props;
+const { titre, description } = Astro.props;
 ---
 
 <!doctype html>
@@ -19,7 +20,7 @@ const { title, description } = Astro.props;
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
-		<title>Billy Klotz | {title}</title>
+		<title>Billy Klotz | {titre}</title>
 		<ViewTransitions />
 	</head>
 	<body>
@@ -90,6 +91,11 @@ const { title, description } = Astro.props;
 	label {
 		overflow-wrap: break-word;
 		font-family: "Montserrat", sans-serif;
+		color: black;
+		font-size : 1.1em;
+	}
+	a:hover {
+		color: lightseagreen;
 	}
 	ul{
 		list-style-type: none;

@@ -2,20 +2,26 @@
 import Layout from '../layouts/Layout.astro';
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import BreadcrumbsItem from "../components/BreadcrumbsItem.astro";
+import Hero from "../components/Hero.astro";
 ---
 
-<Layout title="Accueil">
-	<Breadcrumbs>
-		<BreadcrumbsItem
-				href="/"
-				label="Page d'accueil"
-		/>
-	</Breadcrumbs>
+<Layout titre="Accueil" description="Page d'accueil du portfolio de Billy Klotz">
+	{
+		/*<Breadcrumbs>
+			<BreadcrumbsItem
+					href="/"
+					label="Page d'accueil"
+			/>
+		</Breadcrumbs>*/ }
 	<main>
-
+		<Hero/>
 	</main>
 </Layout>
 
 <style>
-
+	main {
+		width: min(100%, 1196px);
+		margin : auto;
+		padding : .5em;
+	}
 </style>
