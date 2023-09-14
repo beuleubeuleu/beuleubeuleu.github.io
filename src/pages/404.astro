@@ -1,0 +1,61 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Erreur">
+    <div class="message-box">
+        <p>La page demandé n'est pas disponible :(</p>
+        <div class="buttons-con">
+            <div class="action-link-wrap">
+                <a onclick="history.back()" class="link-button link-back-button"
+                >Retourner sur la page Précédente</a
+                >
+                <a href="/" class="link-button">Retourner à l'accueil</a>
+                <a href="/projets" class="link-button">Voir mes projets</a>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+  .message-box {
+    height: 50vh;
+    width: 100%;
+    font-weight: 400;
+    padding: 1em;
+    text-align: center;
+  }
+
+  .message-box p {
+    font-size: 2rem;
+    margin-block: 1em;
+  }
+
+  .action-link-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .buttons-con .action-link-wrap {
+    margin-top: 4em;
+  }
+
+  .buttons-con .action-link-wrap a {
+    color         : #FFF;
+    font-weight   : 600;
+    font-size     : 1.2em;
+    background    : #555;
+    padding       : .8em 1.6em;
+    border-radius : 3px;
+    box-shadow    : rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transition    : all .1s linear;
+  }
+
+  .buttons-con .action-link-wrap a:hover {
+    background : #F6F6F6;
+    box-shadow : rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    color      : #333;  }
+</style>
