@@ -1,0 +1,83 @@
+---
+import Layout          from "../../layouts/Layout.astro";
+import Breadcrumbs     from "../../components/Breadcrumbs.astro";
+import BreadcrumbsItem from "../../components/BreadcrumbsItem.astro";
+import ProjetCard      from "../../components/projets/ProjetCard.astro";
+
+import atikeHome   from "../../assets/projets/atike/atike-home.png"
+import educaHome   from "../../assets/projets/educa/educa-home.png"
+import nohasbaHome from "../../assets/projets/nohasba/nohasba-home.png"
+
+
+const myProjects = [
+  {
+    titre: "Atikè",
+    techStack: ["AstroJS", "AWS", "Stripe"],
+    href: "/projets/atike",
+    img: atikeHome,
+    description: "E-commerce"
+  },
+  {
+    titre: "Educa",
+    techStack: ["AstroJS", "React", "MongoDB"],
+    href: "/projet/educa",
+    img: educaHome,
+    description: "Blog"
+  },
+  {
+    titre: "NoHasba",
+    techStack: ["React", "MySQL"],
+    href: "/projet/nohasba",
+    img: nohasbaHome,
+    description: "Gestionnaire de dépenses"
+  }
+]
+---
+
+<Layout titre="Accueil" description="Page d'accueil du portfolio de Billy Klotz">
+
+    <main>
+        <Breadcrumbs>
+            <BreadcrumbsItem
+                    href="/"
+                    label="Page d'accueil"
+            />
+            <BreadcrumbsItem
+                    currentPage={ true }
+                    href="/projets"
+                    label="Mes projets"
+            />
+        </Breadcrumbs>
+        <h1>Mes Projets</h1>
+        <section>
+          {
+            myProjects.map(project => {
+              return (
+                      <ProjetCard title={ project.titre } img={ project.img } desc={ project.description }/>
+              )
+            })
+          }
+        </section>
+    </main>
+</Layout>
+
+<style>
+  main {
+    width   : min(100%, 1196px);
+    margin  : auto;
+    padding : .5em;
+  }
+
+  h1 {
+    font-size : 2em;
+    color     : #444;
+  }
+
+  section {
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    gap             : 1em;
+    flex-wrap       : wrap;
+  }
+</style>
