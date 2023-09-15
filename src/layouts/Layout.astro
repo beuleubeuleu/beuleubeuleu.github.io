@@ -24,10 +24,10 @@ const { titre, description } = Astro.props;
 		<title>Billy Klotz | {titre}</title>
 		<ViewTransitions />
 	</head>
-	<body>
-	<Header/>
+	<body transition:animate="slide">
+	<Header />
 		<slot />
-	<Footer/>
+	<Footer />
 	</body>
 </html>
 <style is:global>
