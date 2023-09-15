@@ -12,7 +12,7 @@ import nohasbaHome from "../../assets/projets/nohasba/nohasba-home.png"
 const myProjects = [
   {
     titre: "Atikè",
-    techStack: ["AstroJS", "AWS", "Stripe"],
+    techStack: ["AstroJS", "AWS"],
     href: "/projets/atike",
     img: atikeHome,
     description: "E-commerce"
@@ -53,7 +53,7 @@ const myProjects = [
           {
             myProjects.map(project => {
               return (
-                      <ProjetCard title={ project.titre } img={ project.img } desc={ project.description }/>
+                      <ProjetCard title={ project.titre } img={ project.img } desc={ project.description} techstack={project.techStack} />
               )
             })
           }
