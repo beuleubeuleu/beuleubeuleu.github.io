@@ -1,10 +1,10 @@
 ---
-import {ViewTransitions} from "astro:transitions"
-import Header            from "../components/Header.astro";
-import Footer            from "../components/Footer.astro";
+import { ViewTransitions } from "astro:transitions"
+import Header              from "../components/Header.astro";
+import Footer              from "../components/Footer.astro";
 interface Props {
-	titre: string;
-	description: string;
+  titre: string;
+  description: string;
 }
 
 const { titre, description } = Astro.props;
@@ -12,100 +12,98 @@ const { titre, description } = Astro.props;
 
 <!doctype html>
 <html lang="fr">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content={description} />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/logo/contact.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
-		<title>Billy Klotz | {titre}</title>
-		<ViewTransitions />
-	</head>
-	<body transition:animate="slide">
-	<Header />
-		<slot />
-	<Footer />
-	</body>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content={ description }/>
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="icon" type="image/svg+xml" href="/logo/contact.svg"/>
+    <meta name="generator" content={ Astro.generator }/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+    <title>Billy Klotz | {titre}</title>
+    <ViewTransitions/>
+</head>
+<body transition:animate="slide">
+<Header/>
+<slot/>
+<Footer/>
+</body>
 </html>
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-	}
+  :root {
+    --accent       : 136, 58, 234;
+    --accent-light : 224, 204, 250;
+    --accent-dark  : 49, 10, 101;
+  }
 
-	*,
-	*::before,
-	*::after {
-		box-sizing: border-box;
-		margin: 0;
-		padding: 0;
-	}
+  *,
+  *::before,
+  *::after {
+    box-sizing : border-box;
+    margin     : 0;
+    padding    : 0;
+  }
 
-	html {
-		/* hide scrollbar */
-		-ms-overflow-style: none; /* IE and Edge */
-		scrollbar-width: none; /* Firefox */
+  html {
+    /* hide scrollbar */
+    -ms-overflow-style : none; /* IE and Edge */
+    scrollbar-width    : none; /* Firefox */
 
-		background: rgba(255, 255, 255, 0.9);
-	}
+    background         : rgba(255, 255, 255, 0.9);
+  }
 
-	/* Hide scrollbar for Chrome, Safari and Opera */
-	html::-webkit-scrollbar {
-		display: none;
-	}
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  html::-webkit-scrollbar {
+    display : none;
+  }
 
-	body {
-		line-height: 1.5;
-		-webkit-font-smoothing: antialiased;
-	}
+  body {
+    line-height            : 1.5;
+    -webkit-font-smoothing : antialiased;
+  }
 
-	img,
-	picture,
-	video,
-	canvas,
-	svg {
-		display: block;
-		max-width: 100%;
-	}
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display   : block;
+    max-width : 100%;
+  }
 
-	input,
-	button,
-	textarea,
-	select {
-		font: inherit;
-	}
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a,
+  li,
+  button,
+  input,
+  textarea,
+  label {
+    overflow-wrap : break-word;
+    font-family   : "Montserrat", sans-serif;
+    color         : black;
+    font-size     : 1.1em;
+  }
 
-	p,
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6,
-	a,
-	li,
-	button,
-	input,
-	label {
-		overflow-wrap: break-word;
-		font-family: "Montserrat", sans-serif;
-		color: black;
-		font-size : 1.1em;
-	}
-	a:hover {
-		color: lightseagreen;
-	}
-	ul{
-		list-style-type: none;
-	}
-	button {
-		cursor: pointer;
-	}
-	.bold {
-		font-weight: 600;
-	}
+  a:hover {
+    color : lightseagreen;
+  }
+
+  ul {
+    list-style-type : none;
+  }
+
+  button {
+    cursor : pointer;
+  }
+
+  .bold {
+    font-weight : 600;
+  }
 </style>

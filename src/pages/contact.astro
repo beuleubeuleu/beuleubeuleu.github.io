@@ -1,0 +1,191 @@
+---
+import Layout          from "../layouts/Layout.astro";
+import Breadcrumbs     from "../components/Breadcrumbs.astro";
+import BreadcrumbsItem from "../components/BreadcrumbsItem.astro";
+import Hero            from "../components/Hero.astro";
+---
+
+<Layout titre="Contact" description="Formulaire de contact, envoyez-moi un message">
+    <main>
+        <Breadcrumbs>
+            <BreadcrumbsItem
+                    href="/"
+                    label="Page d'accueil"
+            />
+            <BreadcrumbsItem
+                    currentPage={ true }
+                    href="/contact"
+                    label="Me contacter"
+            />
+        </Breadcrumbs>
+
+        <h1>Contact</h1>
+        <section class="visite__container">
+            <h2><span class="big">Magnifique,</span> <br/> un formulaire de contact </h2>
+            <form action="https://formsubmit.co/billyklotz789@gmail.com" method="POST">
+                <div class="visite__form--group">
+                    <input type="text" name="nom" id="nom" placeholder=" " required/>
+                    <span class="visite__form--highlight"></span>
+                    <span class="visite__form--bar"></span>
+                    <label for="nom">Nom</label>
+                </div>
+                <div class="visite__form--group">
+                    <input type="email" name="email" id="email" placeholder=" " required/>
+                    <span class="visite__form--highlight"></span>
+                    <span class="visite__form--bar"></span>
+                    <label for="email">Email</label>
+                </div>
+                <div class="visite__form--group">
+                    <textarea name="message" id="message" placeholder=" " required/>
+                    <span class="visite__form--highlight"></span>
+                    <span class="visite__form--bar"></span>
+                    <label for="message">Votre message ici</label>
+                </div>
+            </form>
+            <input type="submit" value="Envoyer"/>
+        </section>
+    </main>
+</Layout>
+
+<style>
+  main {
+    width   : min(100%, 1196px);
+    margin  : auto;
+    padding : .5em;
+  }
+
+  h1 {
+    font-size : 2em;
+    color     : #444;
+  }
+
+  h2 {
+    margin-bottom : 2em;
+    font-weight   : 400;
+    font-size     : 1.2rem;
+    color         : #333;
+  }
+
+  .big {
+    font-size : 2em;
+  }
+
+  .visite__container {
+    margin        : auto;
+    padding       : 1em 2em;
+    max-width     : 500px;
+    border-radius : 0.2em;
+  }
+
+  .visite__title {
+    margin    : 1em 1em 1.2em 1em;
+    font-size : clamp(1rem, 3vw, 2rem);
+  }
+
+  input[type="text"],
+  input[type="mail"] {
+    color : #000;
+  }
+
+  input[type="submit"] {
+    width          : auto;
+    border-radius  : 0.2em;
+    border         : none;
+    padding-inline : 3em;
+    transition     : 0.2s ease all;
+    box-shadow     : rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+
+  input[type="submit"]:hover {
+    background : #676767;
+    color      : #FFF;
+  }
+
+  input[type="submit"]:focus {
+    outline : auto -webkit-focus-ring-color;
+  }
+
+  /* form starting stylings ------------------------------- */
+  .visite__form--group {
+    position      : relative;
+    margin-bottom : 2em;
+  }
+
+  input, textarea {
+    padding       : 10px 10px 10px 5px;
+    display       : block;
+    width         : min(450px, 100%);
+    border        : none;
+    border-bottom : 1px solid #757575;
+  }
+
+
+  textarea {
+    resize : vertical;
+  }
+
+  input:focus, textarea:focus {
+    outline : none;
+  }
+
+  /* LABEL ======================================= */
+  label {
+    color              : #999;
+    font-size          : 1em;
+    font-weight        : normal;
+    position           : absolute;
+    pointer-events     : none;
+    left               : 5px;
+    top                : 10px;
+    transition         : 0.2s ease all;
+    -moz-transition    : 0.2s ease all;
+    -webkit-transition : 0.2s ease all;
+  }
+
+  /* active state */
+  input:focus ~ label,
+  textarea:focus ~ label,
+  textarea:not(:placeholder-shown) ~ label,
+  input:not(:placeholder-shown) ~ label {
+    top         : -1.5rem;
+    font-weight : 700;
+    color       : #333;
+    font-size   : .8em;
+  }
+
+  /* BOTTOM BARS ================================= */
+  .visite__form--bar {
+    position : relative;
+    display  : block;
+    width    : min(450px, 100%);
+  }
+
+  .visite__form--bar:before,
+  .visite__form--bar:after {
+    content            : "";
+    height             : 2px;
+    width              : 0;
+    bottom             : 1px;
+    position           : absolute;
+    background         : #5264ae;
+    transition         : 0.2s ease all;
+    -moz-transition    : 0.2s ease all;
+    -webkit-transition : 0.2s ease all;
+  }
+
+  .visite__form--bar:before {
+    left : 50%;
+  }
+
+  .visite__form--bar:after {
+    right : 50%;
+  }
+
+  /* active state */
+  input:focus ~ .visite__form--bar:before,
+  input:focus ~ .visite__form--bar:after,
+  textarea:focus ~ .visite__form--bar:before,
+  textarea:focus ~ .visite__form--bar:after {
+    width : 50%;
+  }
+</style>
