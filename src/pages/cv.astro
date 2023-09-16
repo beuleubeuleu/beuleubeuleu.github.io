@@ -1,0 +1,69 @@
+---
+import Layout    from "../layouts/Layout.astro";
+import { Image } from "astro:assets"
+import cvPdf     from "../assets/CV-Billy-Klotz-FR.png"
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import BreadcrumbsItem from "../components/BreadcrumbsItem.astro";
+---
+
+<Layout titre="CV" description="Mon cv en lecture ou téléchargement">
+    <main>
+        <Breadcrumbs>
+            <BreadcrumbsItem
+                href="/"
+                label="Page d'accueil"
+            />
+            <BreadcrumbsItem
+                currentPage={ true }
+                href="/cv"
+                label="Mon CV"
+            />
+        </Breadcrumbs>
+        <h1>Mon CV</h1>
+
+        <section>
+            <ul class="links">
+                <li>
+                    <a href="/billy-klotz-cv-webdev.pdf" target="_blank">Voir le document en pdf dans un nouvel onglet</a>
+                </li>
+                <li>
+                    Télécharger
+                    <a href="/billy-klotz-cv-webdev.pdf" download>billy-klotz-cv-webdev (.pdf 245ko )</a>
+                </li>
+            </ul>
+            <Image src={ cvPdf } alt="cv" width="960" height="1354" class="cv" format="webp"></Image>
+        </section>
+    </main>
+</Layout>
+
+<style>
+  main {
+    width   : min(100%, 1196px);
+    margin  : auto;
+    padding : .5em;
+  }
+
+  h1 {
+      font-size : 2em;
+      color     : #444;
+  }
+
+  section {
+      display : flex;
+      justify-content : center;
+      align-items : center;
+      flex-direction: column;
+      gap: 1em;
+      margin-top : 1em;
+  }
+
+  .links{
+      list-style-type: "-";
+  }
+
+  .cv {
+    width        : min(100%, 750px);
+      height: auto;
+  }
+
+</style>
