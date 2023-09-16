@@ -14,6 +14,7 @@
         </p>
     </div>
     <div class="cta">
+        <a href="/projets">Mes Projets</a>
         <a href="/contact">Contactez-moi!</a>
     </div>
 </section>
@@ -48,7 +49,18 @@
     margin-top : 1em;
   }
 
+  .cta {
+
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    align-items     : flex-start;
+      gap: 1em;
+  }
+
+
   .cta a {
+    width         : 100%;
     color         : #FFF;
     font-weight   : 600;
     font-size     : 1.2em;
@@ -71,8 +83,17 @@
     color      : #FFF
   }
 
-  @media screen and (min-width : 900px) {
+  @media screen and (min-width : 450px) {
+      .hero {
+          width: 450px;
+          margin : auto;
+      }
+
+  }
+
+  @media screen and (min-width : 675px) {
     .hero {
+        width : auto;
       flex-direction : row;
       padding-top    : 100px;
     }
@@ -82,4 +103,5 @@
     }
 
   }
+
 </style>
