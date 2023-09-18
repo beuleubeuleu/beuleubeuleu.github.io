@@ -20,14 +20,14 @@ const myProjects = [
   {
     titre: "Educa",
     techStack: ["AstroJS", "React", "MongoDB"],
-    href: "/projet/educa",
+    href: "/projets/educa",
     img: educaHome,
     description: "Blog"
   },
   {
     titre: "NoHasba",
     techStack: ["React", "MySQL"],
-    href: "/projet/nohasba",
+    href: "/projets/nohasba",
     img: nohasbaHome,
     description: "Gestionnaire de dépenses"
   }
@@ -48,12 +48,16 @@ const myProjects = [
                     label="Mes projets"
             />
         </Breadcrumbs>
-        <h1 >Mes Projets</h1>
+        <h1>Mes Projets</h1>
         <section>
           {
             myProjects.map(project => {
               return (
-                      <ProjetCard title={ project.titre } img={ project.img } desc={ project.description} techstack={project.techStack} />
+                      <ProjetCard title={ project.titre }
+                                  img={ project.img }
+                                  desc={ project.description }
+                                  techstack={ project.techStack }
+                                  url={ project.href }/>
               )
             })
           }

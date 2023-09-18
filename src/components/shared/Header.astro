@@ -11,7 +11,21 @@ const menuItems: {
     },
     {
         title: "Projets",
-        path: "/projets"
+        path: "/projets",
+        children: [
+            {
+             title: "Atikè",
+             path: "/projets/atike"
+            },
+            {
+             title: "Educa",
+             path: "/projets/educa"
+            },
+            {
+             title: "NoHasba",
+             path: "/projets/nohasba"
+            },
+        ]
     },
     {
         title: "Mon CV",
@@ -226,7 +240,7 @@ const menuItems: {
         top: 54px;
         height: 0;
         overflow: hidden;
-        background-color: #f5fafb;
+        background-color: #F3F3F3;
         border-top: solid 1px #e5e5e5;
         transition: all 0.3s ease-in-out;
 
