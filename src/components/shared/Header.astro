@@ -1,5 +1,5 @@
 ---
-import Socials from "./Socials.astro";
+import Socials from "../Socials.astro";
 const menuItems: {
     title: string;
     path: string;
@@ -12,10 +12,6 @@ const menuItems: {
     {
         title: "Projets",
         path: "/projets"
-    },
-    {
-        title: "À propos",
-        path: "/a-propos"
     },
     {
         title: "Mon CV",
@@ -32,7 +28,7 @@ const menuItems: {
     <div class="container">
         <input aria-label="Mobile Menu" type="checkbox" class="header__burger"/>
 
-        <a href="/" class="header__logo">
+        <a href="/public" class="header__logo">
             <img src="/logo/contact.svg">
         </a>
 
