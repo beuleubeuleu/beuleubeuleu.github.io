@@ -17,7 +17,7 @@ const { titre, description, blogTitle, src, alt, techstack } = Astro.props;
 ---
 
 <Layout titre={ titre } description={ description }>
-    <main>
+    <main transition:animate="fade">
         <Breadcrumbs>
             <BreadcrumbsItem
                     href="/"
@@ -34,14 +34,14 @@ const { titre, description, blogTitle, src, alt, techstack } = Astro.props;
             />
         </Breadcrumbs>
         <div class="hero">
-            <div class="tag">
+            <div class="tag" transition:name={`hero-tech-${titre}`}>
                 { techstack.map((tech) => {
                     return (
                         <Image src={ `/logo/${ tech.toLowerCase() }.svg` } alt={ tech } width="64" height="64"></Image>
                     )
                 }) }
             </div>
-            <h1 transition-name={`hero-title-${titre}`}>{ blogTitle }</h1>
+            <h1 transition:name={`hero-title-${titre}`}>{ blogTitle }</h1>
             <Image
                     src={ src }
                     alt={ alt }
@@ -49,7 +49,7 @@ const { titre, description, blogTitle, src, alt, techstack } = Astro.props;
                     height="720"
                     format="webp"
                     class="hero-image"
-                    transition-name={`hero-image-${titre}`}
+                    transition:name={`hero-image-${titre}`}
             />
         </div>
         <slot/>

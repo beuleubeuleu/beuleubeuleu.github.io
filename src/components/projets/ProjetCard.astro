@@ -18,32 +18,35 @@ const { url       = "error",
 ---
 
 <div class="card">
-    <div class="card__image">
-        <Image src={ img } alt="" width="640" height="360" format="webp"/>
-    </div>
+
     <div class="card__content">
-        <h3>
+        <div class="card__content--techstack" transition:name={`hero-tech-${title}`}>
+            { techstack.map((tech) => {
+                return (
+                    <Image src={ `/logo/${ tech.toLowerCase() }.svg` } alt={ tech } width="64" height="64"></Image>
+                )
+            }) }
+        </div>
+        <h3 transition:name={`hero-title-${title}`}>
             <a href={ url }>{ title }</a>
         </h3>
         <p>
           { desc }
         </p>
-        <div class="card__content--techstack">
-          { techstack.map((tech) => {
-            return (
-                    <Image src={ `/logo/${ tech.toLowerCase() }.svg` } alt={ tech } width="64" height="64"></Image>
-            )
-          }) }
-        </div>
     </div>
+
+    <div class="card__image">
+        <Image src={ img } alt="" width="640" height="360" format="webp" transition:name={`hero-image-${title}`}/>
+    </div>
+
 </div>
 
 <style>
   .card {
     display        : flex;
     flex-direction : column;
-    border         : 2px solid black;
-    border-radius  : 0.5rem;
+    border         : 1px solid black;
+    border-radius  : 3px;
     max-width      : 60ch;
     min-height     : 100%;
     position       : relative;
