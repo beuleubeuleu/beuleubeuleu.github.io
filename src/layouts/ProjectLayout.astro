@@ -33,26 +33,31 @@ const { titre, description, blogTitle, src, alt, techstack } = Astro.props;
                     label={ titre }
             />
         </Breadcrumbs>
-        <div class="hero">
-            <div class="tag" transition:name={`hero-tech-${titre}`}>
-                { techstack.map((tech) => {
-                    return (
-                        <Image src={ `/logo/${ tech.toLowerCase() }.svg` } alt={ tech } width="64" height="64"></Image>
-                    )
-                }) }
-            </div>
-            <h1 transition:name={`hero-title-${titre}`}>{ blogTitle }</h1>
-            <Image
+        <article>
+            <section class="hero">
+                <div class="tag" transition:name={ `hero-tech-${ titre }` }>
+                    { techstack.map((tech) => {
+                        return (
+                            <Image src={ `/logo/${ tech.toLowerCase() }.svg` } alt={ tech } width="64"
+                                   height="64"></Image>
+                        )
+                    }) }
+                </div>
+                <h1 transition:name={ `hero-title-${ titre }` }>{ blogTitle }</h1>
+                <Image
                     src={ src }
                     alt={ alt }
                     width="1280"
                     height="720"
                     format="webp"
                     class="hero-image"
-                    transition:name={`hero-image-${titre}`}
-            />
-        </div>
-        <slot/>
+                    transition:name={ `hero-image-${ titre }` }
+                />
+            </section>
+            <section class="text">
+                <slot/>
+            </section>
+        </article>
     </main>
 </Layout>
 
@@ -69,7 +74,7 @@ const { titre, description, blogTitle, src, alt, techstack } = Astro.props;
       flex-direction: column;
       gap: 1em;
 
-      margin-top : 2em;
+      margin-block : 2em;
   }
   .hero-image {
       height: 150px;

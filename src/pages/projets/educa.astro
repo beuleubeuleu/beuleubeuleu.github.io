@@ -1,6 +1,9 @@
 ---
 import ProjectLayout from "../../layouts/ProjectLayout.astro";
-import heroImage     from "../../assets/projets/educa/educa-home.png"
+import { Image }     from "astro:assets"
+
+import heroImage    from "../../assets/projets/educa/educa-home.png"
+import exploreImage from "../../assets/projets/educa/educa-astro-accueil.png"
 ---
 
 <ProjectLayout titre="Educa"
@@ -10,8 +13,131 @@ import heroImage     from "../../assets/projets/educa/educa-home.png"
                alt="Educa, page d'accueil"
                techstack={ ["AstroJS", "React", "MongoDB"] }
 >
+
+    <p>
+        Educa est le projet que j'ai développé pour valider ma certification développeur web•web mobile. Je me met
+        dans la peau d'un professeur de mathématiques qui souhaite partager ses connaissances sur internet.
+    </p>
+    <p>
+        L’évolution du projet se base sur la méthode Explore, Expand, Extract de Kent Beck.
+    </p>
+    <p>
+        Suivant la maturité d’un projet, les critères de décision concernant l’architecture de l’application
+        sont différents. Le projet de certification que j’ai choisi a pour but de mettre en lumière ces différences
+        dans un projet moderne (numérique responsable) qui passerait par les trois étapes suivantes du
+        cycle de vie d’un produit.
+    </p>
+    <h3>Explore</h3>
+    <p>
+        Dans la première phase, dite d'exploration, l’objectif principal est d’explorer le domaine et de
+        comprendre les besoins du système. Cela implique une exploration approfondie des besoins des utilisateurs,
+        des contrainte techniques et des objectifs de projet. L’accent est mis sur l’acquisition de connaissances et la
+        recherche de solutions adaptées.
+    </p>
+    <div class="textAndImage">
+        <div class="text">
+            <p>
+                Le but premier du site est de partager les connaissances du professeur, on va donc permettre au
+                professeur
+                d'écrire des articles en format markdown et générer sur le blog les cartes et les pages correspondantes.
+                Pour améliorer l'expérience des élèves sur le site j'ai aussi développé un système de quiz généré à
+                partir
+                d'un fichier JSON à l'aide de javascript.
+            </p>
+            <p> En conclusion, la phase Explore m’a permis de développer un blog AstroJS en offrant
+                des fonctionnalités avancées. L'augmentation des visites/mois ont confirmé la nécessité de
+                passer à la phase Expand, où je pourrai exploiter tout le potentiel de la stack MERN pour développer une
+                application web plus riche, évolutive et personnalisée.</p>
+        </div>
+        <Image width="820" height="1180" src={ exploreImage }
+               alt="page d'accueil du site lors de la phase explore" format="webp"></Image>
+    </div>
+    <h3>Expand</h3>
+    <p>
+        Une fois que la phase d’exploration est terminé, la phase d’extension consiste à ajouter des fontionnalités
+        et à étendre les capacités du logiciel. Cela peut inclure la création de nouvelles fonctionnalités,
+        l’amélioration des fonctionnalités existantes et l’adaptation aux changements et aux évolution du domaine.
+        L’objectif est de répondre aux besoins des utilisateurs de manière itérative et incrémentale.
+    </p>
+    <p>
+        Pour commencer la refonte de l'application, j'ai identifié plusieurs cas d'utilisation
+    </p>
+    <ul class="allUsecases">
+        <li>
+            En tant qu'utilisateur je peux:
+            <ul class="usecases">
+                <li>voir les articles publiés</li>
+                <li>voir les catégories</li>
+                <li>voir les article publiés filtrés par catégorie</li>
+                <li>voir les article publiés filtrés par auteur</li>
+            </ul>
+        </li>
+        <li>
+            En tant que professeur je peux:
+            <ul class="usecases">
+                <li>écrire de nouveaux articles en tant que brouillons</li>
+                <li>voir tous mes articles, publiés ou brouillons</li>
+                <li>modifier mes articles existants</li>
+                <li>publier des articles</li>
+                <li>supprimer mes articles</li>
+            </ul>
+        </li>
+        <li>
+            En tant qu'administrateur je peux:
+            <ul class="usecases">
+                <li>voir le nombre d'utilisateurs inscrits sur le site</li>
+                <li>voir le nombre total d'articles ainsi que le nombre d'articles publiés</li>
+                <li>valider le statut d'un professeur en attente de confirmation</li>
+            </ul>
+        </li>
+    </ul>
+    lien pres'
+    lien github
+    lien overleaf
 </ProjectLayout>
 
 <style>
+  p, ul {
+    margin    : auto auto 1em;
+    max-width : 800px;
+  }
 
+  h3 {
+    text-align : center;
+  }
+  
+  .allUsecases {
+      font-weight: 600;
+  }
+  .usecases {
+      font-weight : 400;
+      list-style-type: "-";
+  }
+
+  .textAndImage {
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    gap             : 1em;
+    flex-direction  : column;
+
+    max-width       : 800px;
+    margin          : auto auto 1em;
+  }
+
+  .textAndImage p {
+    margin     : 0 0 1em;
+    align-self : flex-start;
+  }
+
+  .textAndImage img {
+    width  : min(100%, 350px);
+    height : auto; /* Maintain aspect ratio */
+  }
+
+  @media only screen and (min-width : 800px) {
+    .textAndImage {
+      flex-direction : row;
+    }
+  }
 </style>

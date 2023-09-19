@@ -9,7 +9,8 @@ interface Props {
   children?: HTMLElement | HTMLElement[]
 }
 
-const { url       = "error",
+const {
+        url       = "error",
         img       = "https://fakeimg.pl/640x360",
         title     = "Default title",
         desc      = "Default description",
@@ -20,23 +21,23 @@ const { url       = "error",
 <div class="card">
 
     <div class="card__content">
-        <div class="card__content--techstack" transition:name={`hero-tech-${title}`}>
-            { techstack.map((tech) => {
-                return (
+        <div class="card__content--techstack" transition:name={ `hero-tech-${ title }` }>
+          { techstack.map((tech) => {
+            return (
                     <Image src={ `/logo/${ tech.toLowerCase() }.svg` } alt={ tech } width="64" height="64"></Image>
-                )
-            }) }
+            )
+          }) }
         </div>
-        <h3 transition:name={`hero-title-${title}`}>
+        <h2 transition:name={ `hero-title-${ title }` }>
             <a href={ url }>{ title }</a>
-        </h3>
+        </h2>
         <p>
           { desc }
         </p>
     </div>
 
     <div class="card__image">
-        <Image src={ img } alt="" width="640" height="360" format="webp" transition:name={`hero-image-${title}`}/>
+        <Image src={ img } alt="" width="640" height="360" format="webp" transition:name={ `hero-image-${ title }` }/>
     </div>
 
 </div>
@@ -72,13 +73,24 @@ const { url       = "error",
     height     : 100%;
     width      : 100%;
     object-fit : cover;
+      filter: blur(4px);
+      transition: filter .2s ease-in-out;
   }
 
   .card__content {
-    display        : flex;
-    flex-direction : column;
-    flex-grow      : 1;
-    padding        : 1rem;
+    display         : flex;
+    flex-direction  : column;
+    flex-grow       : 1;
+    padding         : 1rem;
+    position        : absolute;
+    z-index         : 99;
+    background      : #FFFFFFBF;
+    height          : 100%;
+    width           : 100%;
+  }
+
+  .card__content:hover + .card__image img {
+      filter: blur(1px);
   }
 
   .card__content a {
