@@ -2,8 +2,12 @@
 import ProjectLayout from "../../layouts/ProjectLayout.astro";
 import { Image }     from "astro:assets"
 
-import heroImage    from "../../assets/projets/educa/educa-home.png"
-import exploreImage from "../../assets/projets/educa/educa-astro-accueil.png"
+import heroImage        from "../../assets/projets/educa/educa-home.png"
+import exploreImage     from "../../assets/projets/educa/educa-astro-accueil.png"
+import inscriptionImage from "../../assets/projets/educa/educa-mern-inscription.png"
+import modifierImage    from "../../assets/projets/educa/educa-mern-modifier.png"
+import dashboardImage   from "../../assets/projets/educa/educa-mern-dashboard.png"
+import validationImage  from "../../assets/projets/educa/educa-mern-validation.png"
 ---
 
 <ProjectLayout titre="Educa"
@@ -13,7 +17,25 @@ import exploreImage from "../../assets/projets/educa/educa-astro-accueil.png"
                alt="Educa, page d'accueil"
                techstack={ ["AstroJS", "React", "MongoDB"] }
 >
-
+    <ul class="links">
+        <li>
+            <a href="https://www.overleaf.com/read/xtpmgddvrpyv" target="_blank">Lien vers mon dossier projet rédigé sur
+                                                                                 overleaf
+            </a>
+        </li>
+        <li>
+            <a href="https://www.canva.com/design/DAFdWpws8Xc/LzUMAuaYPHwSa08FGteiZQ/view?utm_content=DAFdWpws8Xc&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink"
+               target="_blank">Lien vers ma présentation canva
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/beuleubeuleu/Educa/tree/main" target="_blank">Lien vers le repo github-Explore
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/beuleubeuleu/Educa-MERN" target="_blank">Lien vers le repo github-Expand</a>
+        </li>
+    </ul>
     <p>
         Educa est le projet que j'ai développé pour valider ma certification développeur web•web mobile. Je me met
         dans la peau d'un professeur de mathématiques qui souhaite partager ses connaissances sur internet.
@@ -91,9 +113,79 @@ import exploreImage from "../../assets/projets/educa/educa-astro-accueil.png"
             </ul>
         </li>
     </ul>
-    lien pres'
-    lien github
-    lien overleaf
+    <div class="gallery">
+        <Image width="585"
+               height="1266"
+               src={ inscriptionImage }
+               alt="page d'accueil du site lors de la phase explore"
+               format="webp"></Image>
+        <Image width="585"
+               height="1266"
+               src={ modifierImage }
+               alt="page d'accueil du site lors de la phase explore"
+               format="webp"></Image>
+        <Image width="675"
+               height="900"
+               src={ validationImage }
+               alt="page d'accueil du site lors de la phase explore"
+               format="webp"></Image>
+        <Image width="585"
+               height="1266"
+               src={ dashboardImage }
+               alt="page d'accueil du site lors de la phase explore"
+               format="webp"></Image>
+    </div>
+    <h3>Extract</h3>
+    <p>
+        La phase d’extraction se concentre sur l’extraction des connaissances et des bonnes pratiques acquises lors des
+        phases précédentes. Il s’agit de capturer les modèles, les meilleurs pratiques, les composants réutilisable et
+        les leçons apprises. Cette phase vise à consolider et à formaliser les connaissances acquises afin de les rendre
+        réutilisables dans d’autres projets ou contextes. Cette approche de Kent Beck peut être appliquée dans
+        différents contextes de développement logiciel, et elle offre une perspective intéressante pour gérer
+        efficacement l’évolution des systèmes.
+    </p>
+    <p>
+        Cependant, dans le contexte de mon projet "Educa", je dois admettre que la phase d'extraction n'a pas été menée
+        à son terme, et la transformation prévue en une plateforme d'éducation sociale n'a pas eu lieu. Comme ce projet
+        a été réalisé individuellement dans le cadre de mes études, j'ai dû gérer des contraintes de temps et de
+        ressources limitées, ce qui a parfois rendu la réalisation complète du projet difficile.
+    </p>
+    <p>
+        Un exemple notable de cette évolution est notre blog initial sur Educa. À l'origine, j'avais planifié des
+        fonctionnalités et des user stories spécifiques pour le blog, mais au fil du temps, ma vision s'est élargie, et
+        une transformation en une plateforme d'éducation sociale était envisagé.
+    </p>
+    <p>
+        Quelques exemples de user stories qui ont évolué pendant cette phase d'expansion tronquée incluent :
+    </p>
+    <ul>
+        <li>
+            <ul class="userStory">
+                <li><span class="bold">Objectif:</span>Les professeurs peuvent créer des articles de blog</li>
+                <li><span class="bold">Évolution (non réalisée):</span>Les professeurs auraient dû pouvoir créer des
+                                                                       articles, mais aussi des cours en ligne complets
+                                                                       avec modules, des quiz, et des espaces de
+                                                                       discussion pour une expérience d'apprentissage
+                                                                       interactive
+                </li>
+            </ul>
+        </li>
+        <li>
+            <ul class="userStory">
+                <li><span class="bold">Objectif:</span>Les utilisateurs peuvent voir les articles publiés.</li>
+                <li><span class="bold">Évolution (non réalisée):</span> Les utilisateurs auraient dû pouvoir voir les
+                                                                        articles, mais aussi les aimer, recommander des
+                                                                        cours,
+                                                                        noter les instructeurs, et suivre des profils
+                                                                        d'experts en éducation.
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <p>Ces évolutions montrent comment l'expérience utilisateur et la valeur du projet auraient pu s'enrichir si j'avais
+       eu plus de temps et de ressources pour le développer davantage. Cela souligne également l'importance de gérer les
+       contraintes dans le cadre d'un projet étudiant, où les idées et les objectifs évoluent en fonction des ressources
+       disponibles.</p>
 </ProjectLayout>
 
 <style>
@@ -105,13 +197,14 @@ import exploreImage from "../../assets/projets/educa/educa-astro-accueil.png"
   h3 {
     text-align : center;
   }
-  
+
   .allUsecases {
-      font-weight: 600;
+    font-weight : 600;
   }
+
   .usecases {
-      font-weight : 400;
-      list-style-type: "-";
+    font-weight     : 400;
+    list-style-type : "-";
   }
 
   .textAndImage {
@@ -133,6 +226,22 @@ import exploreImage from "../../assets/projets/educa/educa-astro-accueil.png"
   .textAndImage img {
     width  : min(100%, 350px);
     height : auto; /* Maintain aspect ratio */
+  }
+
+  .gallery {
+    max-width       : 72ch;
+    margin          : 1em auto;
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    flex-wrap       : wrap;
+    gap             : 2em;
+  }
+
+  .gallery img {
+    object-fit : cover;
+    width      : 250px;
+    height     : auto;
   }
 
   @media only screen and (min-width : 800px) {

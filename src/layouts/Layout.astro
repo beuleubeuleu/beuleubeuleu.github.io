@@ -30,7 +30,7 @@ const { titre, description } = Astro.props;
 <Footer/>
 </body>
 </html>
-<style is:global>
+<style is:global lang="scss">
   :root {
     --accent       : 136, 58, 234;
     --accent-light : 224, 204, 250;
@@ -50,7 +50,6 @@ const { titre, description } = Astro.props;
     -ms-overflow-style : none; /* IE and Edge */
     scrollbar-width    : none; /* Firefox */
 
-    background         : rgba(255, 255, 255, 0.9);
   }
 
   /* Hide scrollbar for Chrome, Safari and Opera */
@@ -61,6 +60,7 @@ const { titre, description } = Astro.props;
   body {
     line-height            : 1.5;
     -webkit-font-smoothing : antialiased;
+      background         : rgba(255, 255, 255, 0.9);
   }
 
   img,
