@@ -1,6 +1,14 @@
 ---
 import ProjectLayout from "../../layouts/ProjectLayout.astro";
 import heroImage     from "../../assets/projets/nohasba/nohasba-home.png"
+import groupeImage   from "../../assets/projets/nohasba/nohasba-createGroup.png"
+import expensesImage from "../../assets/projets/nohasba/nohasba-expenses.png"
+import detteImage    from "../../assets/projets/nohasba/nohasba-dette.png"
+import codeImage     from "../../assets/projets/nohasba/nohasba-getGroupTotalDebt.png"
+
+import { Image }     from "astro:assets";
+import AccordionItem from "../../components/shared/AccordionItem.astro";
+import Accordion     from "../../components/shared/Accordion.astro";
 ---
 
 <ProjectLayout titre="NoHasba"
@@ -10,8 +18,157 @@ import heroImage     from "../../assets/projets/nohasba/nohasba-home.png"
                alt="NoHasba, page d'accueil"
                techstack={ ["React", "MySQL"] }
 >
+    <ul class="links">
+        <li>
+            <a href="https://github.com/beuleubeuleu/no-hasba">Lien vers le repo github</a>
+        </li>
+    </ul>
+
+    <p>
+        NoHasba est un projet que j'ai développé pendant ma formation développeur web•web mobile sur mon temps libre. Le
+        but était de découvrir par la pratique quelques technologies, concepts. <br>
+        Avant ma première ligne de code, je voulais expérimenter avec une base de données relationnelle et l'inversion
+        de dépendance. J'avais choisi de copier le métier de
+        <a href="https://www.tricount.com/fr/" target="_blank">tricount</a>
+        pour avoir un challenge niveau algorithme.
+    </p>
+    <h3>Demo</h3>
+    <p>Mais enfaite, il sert à quoi le site?</p>
+    <p>
+        En l'état, il ne sert à rien. J'ai très peu travailler sur le front mais j'ai tout de même quelques screenshot
+        pour vous.
+    </p>
+    <div class="gallery">
+        <p>Créer un groupe</p>
+        <Image width="2100"
+               height="1350"
+               src={ groupeImage }
+               alt="page de création d'un groupe"
+               format="webp"></Image>
+        <p>Voir les dépenses du groupe</p>
+        <Image width="2100"
+               height="1350"
+               src={ expensesImage }
+               alt="page des dépenses"
+               format="webp"></Image>
+        <p>Comment régler les dettes du groupe</p>
+        <Image width="2100"
+               height="1350"
+               src={ detteImage }
+               alt="option 'comment régler' de la page des dépenses"
+               format="webp"></Image>
+    </div>
+    <p>
+        La création des dépenses et des utilisateurs d'un groupe se fait à l'aide de requêtes http (postman, insomnia,
+        curl)
+    </p>
+    <h3>L'Algorithme</h3>
+    <Accordion>
+        <AccordionItem header="Voir le code">
+            <Image width="2048"
+                   height="2868"
+                   src={ codeImage }
+                   alt="Code snippet de l'algorithme de résolution de dettes"
+                   format="webp"
+                   class="code-image"></Image>
+        </AccordionItem>
+    </Accordion>
+
+    <p>
+        Cette méthode qui appartient à la classe trigroupSQL a pour responsabilité de calculer les dettes total d'un
+        groupe. L'algorithme utilise une fonction asynchrone pour intéragir avec la base de données MySQL et effectuer
+        les calculs.
+        On va décomposer chaque étapes clés et opérations de la méthode.
+    </p>
+    <ol>
+        <li><span class="bold">Connexion à la BDD: </span>On commence par établir une connexion à la base de données
+                                                          MySQL avec la configuration fournie dans la classe
+                                                          d'origine.
+        </li>
+        <li><span class="bold">Récuperer les dépenses: </span>La méthode va ensuite chercher dans la base de donnée
+                                                              toutes les dépenses
+                                                              associées au groupe spécifié dans la requête.
+        </li>
+        <li><span class="bold">Calculé la dette: </span>Pour chaque dépense, on récupère le contributeur et les
+                                                        bénéficiaires, et on calcule le montant dû de chaque
+                                                        bénéficiaire au contributeur. l'information est stocké dans un
+                                                        tableau <code>debts</code>.
+        </li>
+        <li><span class="bold">Aplatir le tableau de dette: </span>Le tableau <code>debts</code> qui était initialement
+                                                                   un tableau de tableau, est aplati avec la methode
+            <code>.flat()</code> pour en faire un tableau d'objets.
+        </li>
+        <li><span class="bold">Déclaration de <code>userDebt</code>: </span>L'objet userDebts est créé pour stocket la
+                                                                            dette de chaque utilisateur. Le tableau de
+                                                                            dettes est itéré et la dette total de chaque
+                                                                            utilisateur est calculé et mise à jour dans
+                                                                            l'objet.
+            <code>userDebts</code></li>
+        <li><span class="bold">Conversion de <code>userDebts</code> en un tableau: </span>L'objet <code>userDebts</code>
+                                                                                          va être converti en un tableau
+                                                                                          d'objet <code>userList</code>,
+                                                                                          où chaque objet contient
+                                                                                          l'utilisateur et l'information
+                                                                                          sur sa dette respective.
+        </li>
+        <li><span class="bold">Calculer les paiements: </span>L'algorithme calcule une liste de paiement entre
+                                                              utilisateurs. Il itère le tableau <code>userList</code> et
+                                                              identifie des paires d'utilisateurs ou l'un doit de
+                                                              l'argent <code>user1.debt > 0</code> et où l'autre est dû
+            <code>user2.debt < 0</code>. Le montant qui peut être transférer entre eux est calculé et les dettes sont
+                                                              mises à jour.
+        </li>
+        <li><span class="bold">Résulats: </span> La méthode retourne un objet qui contient 2 propriétés:
+            <code>userDebt</code> qui est une liste trié des utilisateurs et de leurs dette, et
+            <code>howToBalance</code> qui est une liste de paiements à faire entre utilisateurs pour annuler les dettes
+        </li>
+        <li><span class="bold">Erreur et Cleanup: </span>Chaque erreur qui survient pendant les opérations est attrapé et affiché sur la console, et pour finir la connexion a la bdd est coupé dans le bloc <code>finally</code></li>
+    </ol>
+
+    <h3>Inversion de Dépendance</h3>
+    <h3>BDD Relationnelle</h3>
+
 </ProjectLayout>
 
 <style>
+  p, ul, ol {
+    margin    : auto auto 1em;
+    max-width : 800px;
+  }
 
+  h3 {
+    text-align : center;
+  }
+
+  .gallery {
+    margin          : 1em auto;
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    align-items     : flex-start;
+    gap             : 1em;
+  }
+
+  .gallery img {
+    object-fit      : cover;
+    object-position : top left;
+    width           : 1196px;
+    height          : auto;
+    max-height      : 500px;
+  }
+
+  .gallery p {
+    margin     : 1em 0 0;
+    font-style : italic;
+  }
+
+  .code-image {
+    width  : 100%;
+    height : auto;
+  }
+
+  code {
+    background    : #DDD;
+    border-radius : 3px;
+  }
 </style>
