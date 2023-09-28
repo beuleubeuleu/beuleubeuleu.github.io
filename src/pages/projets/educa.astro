@@ -35,7 +35,12 @@ import validationImage  from "../../assets/projets/educa/educa-mern-validation.p
         <li>
             <a href="https://github.com/beuleubeuleu/Educa-MERN" target="_blank">Lien vers le repo github-Expand</a>
         </li>
+        <li>
+            <a href="/portfolio-astro/projets/educa#TLDR">TLDR</a>
+        </li>
     </ul>
+
+
     <p>
         Educa est le projet que j'ai développé pour valider ma certification développeur web•web mobile. Je me met
         dans la peau d'un professeur de mathématiques qui souhaite partager ses connaissances sur internet.
@@ -182,10 +187,24 @@ import validationImage  from "../../assets/projets/educa/educa-mern-validation.p
             </ul>
         </li>
     </ul>
-    <p>Ces évolutions montrent comment l'expérience utilisateur et la valeur du projet auraient pu s'enrichir si j'avais
-       eu plus de temps et de ressources pour le développer davantage. Cela souligne également l'importance de gérer les
-       contraintes dans le cadre d'un projet étudiant, où les idées et les objectifs évoluent en fonction des ressources
-       disponibles.</p>
+    <p>
+        Ces évolutions montrent comment l'expérience utilisateur et la valeur du projet auraient pu s'enrichir si
+        j'avais eu plus de temps et de ressources pour le développer davantage. Cela souligne également l'importance de
+        gérer les contraintes dans le cadre d'un projet étudiant, où les idées et les objectifs évoluent en fonction des
+        ressources disponibles.
+    </p>
+    <h3 id="TLDR">Too Long Didn't Read:</h3>
+    <p>
+        En résumé, le projet "Educa" a été développé pour valider ma certification de développeur web et web mobile. Il
+        suit la méthodologie "Explore, Expand, Extract" de Kent Beck pour évoluer en fonction de la maturité du projet.
+    </p>
+    <p>
+        La phase d'exploration a permis la création d'un blog AstroJS, tandis que la phase d'extension a ajouté de
+        nombreuses fonctionnalités, répondant aux besoins des utilisateurs. Cependant, la phase d'extraction, visant à
+        formaliser les connaissances acquises, n'a pas été menée à bien en raison de contraintes de temps et de
+        ressources. Malgré cela, le projet illustre les défis et les opportunités du développement web, soulignant
+        l'importance de l'adaptation dans le processus de développement.
+    </p>
 </ProjectLayout>
 
 <style>
@@ -242,6 +261,19 @@ import validationImage  from "../../assets/projets/educa/educa-mern-validation.p
     object-fit : cover;
     width      : 250px;
     height     : auto;
+  }
+
+  /* Style for the heading with scroll offset */
+  #TLDR {
+    position   : relative;
+    margin-top : 60px; /* Adjust this value to match your navbar's height */
+  }
+
+  /* Pseudo-element for scroll offset */
+  #TLDR::before {
+    content : "";
+    display : block;
+    height  : 60px; /* Set to match your navbar's height */
   }
 
   @media only screen and (min-width : 800px) {
