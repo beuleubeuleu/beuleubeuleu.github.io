@@ -13,21 +13,21 @@ const myProjects = [
   {
     titre: "Atikè",
     techStack: ["AstroJS", "AWS"],
-    href: "/projets/atike",
+    href: "/portfolio-astro/projets/atike",
     img: atikeHome,
     description: "E-commerce"
   },
   {
     titre: "Educa",
     techStack: ["AstroJS", "React", "MongoDB"],
-    href: "/projets/educa",
+    href: "/portfolio-astro/projets/educa",
     img: educaHome,
     description: "Blog"
   },
   {
     titre: "NoHasba",
     techStack: ["React", "MySQL"],
-    href: "/projets/nohasba",
+    href: "/portfolio-astro/projets/nohasba",
     img: nohasbaHome,
     description: "Gestionnaire de dépenses"
   }
@@ -39,12 +39,12 @@ const myProjects = [
     <main transition:animate="fade">
         <Breadcrumbs>
             <BreadcrumbsItem
-                    href="/"
+                    href="/portfolio-astro/"
                     label="Page d'accueil"
             />
             <BreadcrumbsItem
                     currentPage={ true }
-                    href="/projets"
+                    href="/portfolio-astro/projets"
                     label="Mes projets"
             />
         </Breadcrumbs>
