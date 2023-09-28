@@ -2,19 +2,18 @@
 import Layout          from "../layouts/Layout.astro";
 import Breadcrumbs     from "../components/shared/Breadcrumbs.astro";
 import BreadcrumbsItem from "../components/shared/BreadcrumbsItem.astro";
-import Hero            from "../components/Hero.astro";
 ---
 
 <Layout titre="Contact" description="Formulaire de contact, envoyez-moi un message">
     <main>
         <Breadcrumbs>
             <BreadcrumbsItem
-                    href="/"
+                    href="/portfolio-astro/"
                     label="Page d'accueil"
             />
             <BreadcrumbsItem
                     currentPage={ true }
-                    href="/contact"
+                    href="/portfolio-astro/contact"
                     label="Me contacter"
             />
         </Breadcrumbs>
@@ -93,7 +92,7 @@ import Hero            from "../components/Hero.astro";
     border         : none;
     padding-inline : 3em;
     transition     : 0.2s ease all;
-    box-shadow     : rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    box-shadow     : rgba(99, 99, 99, 0.2) 0 2px 8px 0;
   }
 
   input[type="submit"]:hover {

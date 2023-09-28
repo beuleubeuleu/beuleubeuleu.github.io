@@ -20,16 +20,15 @@ const { titre, description, blogTitle, src, alt, techstack } = Astro.props;
     <main transition:animate="fade">
         <Breadcrumbs>
             <BreadcrumbsItem
-                    href="/"
+                    href="/portfolio-astro/"
                     label="Page d'accueil"
             />
             <BreadcrumbsItem
-                    href="/projets"
+                    href="/portfolio-astro/projets"
                     label="Mes projets"
             />
             <BreadcrumbsItem
                     currentPage={ true }
-                    href="/projets/"
                     label={ titre }
             />
         </Breadcrumbs>
