@@ -5,6 +5,7 @@ import groupeImage   from "../../assets/projets/nohasba/nohasba-createGroup.png"
 import expensesImage from "../../assets/projets/nohasba/nohasba-expenses.png"
 import detteImage    from "../../assets/projets/nohasba/nohasba-dette.png"
 import codeImage     from "../../assets/projets/nohasba/nohasba-getGroupTotalDebt.png"
+import diagramSQL from "../../assets/projets/nohasba/nohasba-sql-diagram.png"
 
 import { Image }     from "astro:assets";
 import AccordionItem from "../../components/shared/AccordionItem.astro";
@@ -30,7 +31,7 @@ import Accordion     from "../../components/shared/Accordion.astro";
         Avant ma première ligne de code, je voulais expérimenter avec une base de données relationnelle et l'inversion
         de dépendance. J'avais choisi de copier le métier de
         <a href="https://www.tricount.com/fr/" target="_blank">tricount</a>
-        pour avoir un challenge niveau algorithme.
+        pour avoir un challenge en algorithme.
     </p>
     <h3>Demo</h3>
     <p>Mais enfaite, il sert à quoi le site?</p>
@@ -62,6 +63,35 @@ import Accordion     from "../../components/shared/Accordion.astro";
         La création des dépenses et des utilisateurs d'un groupe se fait à l'aide de requêtes http (postman, insomnia,
         curl)
     </p>
+    <h3>BDD Relationnelle</h3>
+    <p>
+        N'ayant utilisé que mongoDB avant le développement de NoHasba, j'ai fait beaucoup de veille avant de commencer.
+        Comment choisir, ou comment m'y prendre pour initialisé ma base de données ? <br>
+        Après quelques temps à regarder des vidéos et lire des articles j'ai décidé d'utilisé MySQL, car les besoins de
+        mon
+        applications étaient minime et la prise en main pour un premier projet m'a semblé plus facile. <br>
+        Et interdiction d'utilisé un ORM pour écrire mes propres requête sql.
+    </p>
+    <p>
+        J'avais déjà une base de données en JSON, je n'ai donc pas
+        eu trop de mal à identifier mes tables.(plus de détails dans la partie "Inversion de Dépendance")
+    </p>
+    <p>
+        La base de données est composée de plusieurs tables interconnectées, chacune jouant un rôle spécifique dans le système :
+    </p>
+    <ul>
+        <li><span class="bold">Table "Groupes de Dépenses" :</span> Cette table stocke des informations sur les différents groupes de dépenses créés par les utilisateurs. Chaque groupe est identifié par un nom unique et peut avoir une description pour une meilleure compréhension de son objectif.</li>
+        <li><span class="bold">Table "Utilisateurs" :</span> Cette table enregistre les profils des utilisateurs impliqués dans les groupes de dépenses. Chaque utilisateur est lié à un groupe spécifique, et son nom est enregistré pour une identification aisée.</li>
+        <li><span class="bold">Table "Dépenses" :</span> Les détails de chaque transaction financière sont stockés dans cette table. Chaque dépense est associée à un groupe particulier et enregistre son nom ainsi que le montant total.</li>
+        <li><span class="bold">Tables "Contributeurs de Dépenses" et "Bénéficiaires de Dépenses" :</span> Ces tables gèrent les relations entre les utilisateurs et les dépenses. Les contributeurs de chaque dépense sont enregistrés, ainsi que les bénéficiaires qui ont profité de cette dépense.</li>
+    </ul>
+    <Image width="1374"
+           height="1188"
+           src={ diagramSQL }
+           alt="Diagrame de relation des entités de NoHasba"
+           format="webp"
+           class="diagram-image"></Image>
+
     <h3>L'Algorithme</h3>
     <Accordion>
         <AccordionItem header="Voir le code">
@@ -122,11 +152,17 @@ import Accordion     from "../../components/shared/Accordion.astro";
             <code>userDebt</code> qui est une liste trié des utilisateurs et de leurs dette, et
             <code>howToBalance</code> qui est une liste de paiements à faire entre utilisateurs pour annuler les dettes
         </li>
-        <li><span class="bold">Erreur et Cleanup: </span>Chaque erreur qui survient pendant les opérations est attrapé et affiché sur la console, et pour finir la connexion a la bdd est coupé dans le bloc <code>finally</code></li>
+        <li><span class="bold">Erreur et Cleanup: </span>Chaque erreur qui survient pendant les opérations est attrapé
+                                                         et affiché sur la console, et pour finir la connexion a la bdd
+                                                         est coupé dans le bloc <code>finally</code></li>
     </ol>
+    <p>
+        Cette section a offert un aperçu détaillé de la méthode de calcul des dettes totales d'un groupe, une composante
+        essentielle de mon projet. Au cours de cette exploration, nous avons plongé dans les rouages de
+        l'algorithme, mettant en lumière chacune de ses étapes clés et opérations.
+    </p>
 
     <h3>Inversion de Dépendance</h3>
-    <h3>BDD Relationnelle</h3>
 
 </ProjectLayout>
 
@@ -138,6 +174,7 @@ import Accordion     from "../../components/shared/Accordion.astro";
 
   h3 {
     text-align : center;
+      margin: 2em auto 1em;
   }
 
   .gallery {
@@ -165,6 +202,12 @@ import Accordion     from "../../components/shared/Accordion.astro";
   .code-image {
     width  : 100%;
     height : auto;
+  }
+
+  .diagram-image {
+    width  : min(600px, 100%);
+    height : auto;
+    margin : auto;
   }
 
   code {
