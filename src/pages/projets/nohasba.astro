@@ -5,7 +5,7 @@ import groupeImage   from "../../assets/projets/nohasba/nohasba-createGroup.png"
 import expensesImage from "../../assets/projets/nohasba/nohasba-expenses.png"
 import detteImage    from "../../assets/projets/nohasba/nohasba-dette.png"
 import codeImage     from "../../assets/projets/nohasba/nohasba-getGroupTotalDebt.png"
-import diagramSQL from "../../assets/projets/nohasba/nohasba-sql-diagram.png"
+import diagramSQL    from "../../assets/projets/nohasba/nohasba-sql-diagram.png"
 
 import { Image }     from "astro:assets";
 import AccordionItem from "../../components/shared/AccordionItem.astro";
@@ -22,6 +22,9 @@ import Accordion     from "../../components/shared/Accordion.astro";
     <ul class="links">
         <li>
             <a href="https://github.com/beuleubeuleu/no-hasba">Lien vers le repo github</a>
+        </li>
+        <li>
+            <a href="/portfolio-astro/projets/nohasba#TLDR">TLDR</a>
         </li>
     </ul>
 
@@ -77,14 +80,54 @@ import Accordion     from "../../components/shared/Accordion.astro";
         eu trop de mal à identifier mes tables.(plus de détails dans la partie "Inversion de Dépendance")
     </p>
     <p>
-        La base de données est composée de plusieurs tables interconnectées, chacune jouant un rôle spécifique dans le système :
+        La base de données est composée de plusieurs tables interconnectées, chacune jouant un rôle spécifique dans le
+        système :
     </p>
     <ul>
-        <li><span class="bold">Table "Groupes de Dépenses" :</span> Cette table stocke des informations sur les différents groupes de dépenses créés par les utilisateurs. Chaque groupe est identifié par un nom unique et peut avoir une description pour une meilleure compréhension de son objectif.</li>
-        <li><span class="bold">Table "Utilisateurs" :</span> Cette table enregistre les profils des utilisateurs impliqués dans les groupes de dépenses. Chaque utilisateur est lié à un groupe spécifique, et son nom est enregistré pour une identification aisée.</li>
-        <li><span class="bold">Table "Dépenses" :</span> Les détails de chaque transaction financière sont stockés dans cette table. Chaque dépense est associée à un groupe particulier et enregistre son nom ainsi que le montant total.</li>
-        <li><span class="bold">Tables "Contributeurs de Dépenses" et "Bénéficiaires de Dépenses" :</span> Ces tables gèrent les relations entre les utilisateurs et les dépenses. Les contributeurs de chaque dépense sont enregistrés, ainsi que les bénéficiaires qui ont profité de cette dépense.</li>
+        <li><span class="bold">Table "Groupes de Dépenses" :</span> Cette table stocke des informations sur les
+                                                                    différents groupes de dépenses créés par les
+                                                                    utilisateurs. Chaque groupe est identifié par un nom
+                                                                    unique et peut avoir une description pour une
+                                                                    meilleure compréhension de son objectif.
+        </li>
+        <li><span class="bold">Table "Utilisateurs" :</span> Cette table enregistre les profils des utilisateurs
+                                                             impliqués dans les groupes de dépenses. Chaque utilisateur
+                                                             est lié à un groupe spécifique, et son nom est enregistré
+                                                             pour une identification aisée.
+        </li>
+        <li><span class="bold">Table "Dépenses" :</span> Les détails de chaque transaction financière sont stockés dans
+                                                         cette table. Chaque dépense est associée à un groupe
+                                                         particulier et enregistre son nom ainsi que le montant total.
+        </li>
+        <li><span class="bold">Tables "Contributeurs de Dépenses" et "Bénéficiaires de Dépenses" :</span> Ces tables
+                                                                                                          gèrent les
+                                                                                                          relations
+                                                                                                          entre les
+                                                                                                          utilisateurs
+                                                                                                          et les
+                                                                                                          dépenses. Les
+                                                                                                          contributeurs
+                                                                                                          de chaque
+                                                                                                          dépense sont
+                                                                                                          enregistrés,
+                                                                                                          ainsi que les
+                                                                                                          bénéficiaires
+                                                                                                          qui ont
+                                                                                                          profité de
+                                                                                                          cette dépense.
+        </li>
     </ul>
+    <p>
+        J'ai créé un fichier v0.sql dans un dossier migrations avec l'initialisation de mes tables. <br>
+        Pour les mise à jour futures, plutôt que d'apporter des modifications directes à la base de données, les
+        migrations SQL cme permettront,à travers des scripts SQL, de décrire les modifications à apporter, telles que
+        l'ajout
+        de nouvelles tables, la modification des colonnes existantes ou la création d'index. <br>
+        Ces scripts sont ensuite exécutés séquentiellement pour mettre à jour la structure de la base de données. Les
+        migrations SQL offrent une traçabilité complète des changements et permettent de <span
+            style="font-style: italic">revenir en arrière en cas de problème</span>, garantissant ainsi la cohérence et
+        l'intégrité des données tout au long du cycle de vie d'une application.
+    </p>
     <Image width="1374"
            height="1188"
            src={ diagramSQL }
@@ -163,7 +206,82 @@ import Accordion     from "../../components/shared/Accordion.astro";
     </p>
 
     <h3>Inversion de Dépendance</h3>
+    <p>
+        Au début de mon parcours de développement pour NoHasba, j'ai opté pour une solution simple mais limitée: stocker
+        les données dans un fichier JSON et les manipuler en utilisant Node.js File System. Cela a permis un démarrage
+        rapide du projet, mais rapidement, il est devenu évident que cette approche n'était pas évolutive ni maintenable
+        à long terme.
+    </p>
+    <p>
+        Pour résoudre ces limitations, j'ai entrepris une refonte majeure de l'infrastructure de gestion des données en
+        introduisant des concepts d'inversion de dépendance et de modularité. Voici comment cette transition s'est
+        déroulée:
+    </p>
+    <ul>
+        <li><span class="bold">Conception de l'Interface Trigroup:</span> La première étape a consisté à créer une
+                                                                          interface appelée "Trigroup". Cette interface
+                                                                          a défini un ensemble de méthodes et de
+                                                                          propriétés que toute classe de gestion de
+                                                                          groupe de dépenses devrait implémenter. Cette
+                                                                          abstraction a permis de définir un contrat
+                                                                          clair pour la manipulation des données de
+                                                                          groupe de dépenses.
+        </li>
+        <li><span class="bold">Implémentation de TrigroupJson et TrigroupSql:</span> En utilisant l'interface "Trigroup"
+                                                                                     comme base, j'ai développé deux
+                                                                                     classes distinctes : "TrigroupJson"
+                                                                                     et "TrigroupSql". "TrigroupJson"
+                                                                                     est conçu pour gérer les données
+                                                                                     stockées dans des fichiers JSON,
+                                                                                     tandis que "TrigroupSql" est
+                                                                                     destiné à interagir avec une base
+                                                                                     de données SQL, offrant une
+                                                                                     flexibilité accrue pour le stockage
+                                                                                     des données.
+        </li>
+        <li><span class="bold">Mise en Place d'une Fabrique Abstraite:</span> Une étape cruciale de cette transition a
+                                                                              été la création d'une fabrique abstraite.
+                                                                              Cette fabrique utilise une variable
+                                                                              d'environnement pour déterminer quel type
+                                                                              de gestionnaire de groupe de dépenses
+                                                                              ("TrigroupJson" ou "TrigroupSql") doit
+                                                                              être instancié. Cela a permis de rendre le
+                                                                              choix du stockage des données flexible et
+                                                                              adaptable en fonction des besoins du
+                                                                              projet ou des préférences.
+        </li>
+    </ul>
 
+    <p>
+        Ce changement d'approche a considérablement amélioré la maintenabilité de l'application et a ouvert la porte à
+        des évolutions futures sans perturber le fonctionnement de base. En adoptant des principes d'inversion de
+        dépendance et en créant une structure modulaire, NoHasba est devenu plus extensible, ce qui facilitera
+        l'ajout de nouvelles fonctionnalités et le passage à d'autres systèmes de stockage de données si nécessaire.
+    </p>
+    <p>
+        Cette transition a également renforcé la qualité du code en séparant clairement les responsabilités et en
+        permettant une meilleure gestion des erreurs, tout en préservant la cohérence et la stabilité du projet.
+    </p>
+    <h3 id="TLDR">Too Long Didn't Read</h3>
+    <p>
+        NoHasba est un projet personnel développé pendant ma formation en développement web et mobile. Il a été
+        l'occasion d'explorer diverses technologies, notamment une base de données relationnelle et l'inversion de
+        dépendance. L'application permet de gérer des groupes de dépenses, même si elle n'est pas abouti sur le plan de
+        l'interface utilisateur.
+    </p>
+    <p>
+        J'ai introduit l'inversion de dépendance en utilisant une interface "Trigroup" avec des implémentations
+        spécifiques pour le stockage en JSON ou en SQL, offrant une flexibilité accrue et une modularité au projet. Cela
+        a permis d'améliorer la maintenabilité et la qualité du code tout en préparant le terrain pour de futures
+        évolutions.
+    </p>
+    <p>
+        j'ai choisi MySQL pour la base de données, ce qui a nécessité de créer des tables interconnectées pour stocker
+        les informations sur les groupes, les utilisateurs et les dépenses. J'ai également mis en place des migrations
+        SQL pour gérer les évolutions de la structure de la base de données. <br>
+        Enfin, une partie essentielle du projet est l'algorithme de calcul des dettes entre les membres d'un groupe,
+        expliqué en détail.
+    </p>
 </ProjectLayout>
 
 <style>
@@ -174,7 +292,7 @@ import Accordion     from "../../components/shared/Accordion.astro";
 
   h3 {
     text-align : center;
-      margin: 2em auto 1em;
+    margin     : 2em auto 1em;
   }
 
   .gallery {
@@ -209,6 +327,16 @@ import Accordion     from "../../components/shared/Accordion.astro";
     height : auto;
     margin : auto;
   }
+
+  #TLDR {
+    position   : relative;
+    margin-top : 60px;
+  }
+
+  #TLDR::before {
+    content : "";
+    display : block;
+    height  : 60px;
 
   code {
     background    : #DDD;
