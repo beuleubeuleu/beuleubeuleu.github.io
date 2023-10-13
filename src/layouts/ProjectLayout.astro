@@ -20,11 +20,11 @@ const { titre, description, blogTitle, src, alt, techstack } = Astro.props;
     <main transition:animate="fade">
         <Breadcrumbs>
             <BreadcrumbsItem
-                    href="/portfolio-astro/"
+                    href="/"
                     label="Page d'accueil"
             />
             <BreadcrumbsItem
-                    href="/portfolio-astro/projets"
+                    href="/projets"
                     label="Mes projets"
             />
             <BreadcrumbsItem
@@ -37,7 +37,7 @@ const { titre, description, blogTitle, src, alt, techstack } = Astro.props;
                 <div class="tag" transition:name={ `hero-tech-${ titre }` }>
                     { techstack.map((tech) => {
                         return (
-                            <Image src={ `/portfolio-astro/logo/${ tech.toLowerCase() }.svg` } alt={ tech } width="64"
+                            <Image src={ `/logo/${ tech.toLowerCase() }.svg` } alt={ tech } width="64"
                                    height="64"></Image>
                         )
                     }) }

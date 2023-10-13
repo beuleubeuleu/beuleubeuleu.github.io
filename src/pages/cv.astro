@@ -10,12 +10,12 @@ import BreadcrumbsItem from "../components/shared/BreadcrumbsItem.astro";
     <main>
         <Breadcrumbs>
             <BreadcrumbsItem
-                href="/portfolio-astro/"
+                href="/"
                 label="Page d'accueil"
             />
             <BreadcrumbsItem
                 currentPage={ true }
-                href="/portfolio-astro/cv"
+                href="/cv"
                 label="Mon CV"
             />
         </Breadcrumbs>
@@ -24,11 +24,11 @@ import BreadcrumbsItem from "../components/shared/BreadcrumbsItem.astro";
         <section>
             <ul class="links">
                 <li>
-                    <a href="/portfolio-astro/billy-klotz-cv-webdev.pdf" target="_blank">Voir le document en pdf dans un nouvel onglet</a>
+                    <a href="/billy-klotz-cv-webdev.pdf" target="_blank">Voir le document en pdf dans un nouvel onglet</a>
                 </li>
                 <li>
                     Télécharger
-                    <a href="/portfolio-astro/billy-klotz-cv-webdev.pdf" download>billy-klotz-cv-webdev (.pdf 245ko )</a>
+                    <a href="/billy-klotz-cv-webdev.pdf" download>billy-klotz-cv-webdev (.pdf 245ko )</a>
                 </li>
             </ul>
             <Image src={ cvPdf } alt="cv" width="960" height="1354" class="cv" format="webp"></Image>

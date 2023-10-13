@@ -8,12 +8,12 @@ import BreadcrumbsItem from "../components/shared/BreadcrumbsItem.astro";
     <main>
         <Breadcrumbs>
             <BreadcrumbsItem
-                    href="/portfolio-astro/"
+                    href="/"
                     label="Page d'accueil"
             />
             <BreadcrumbsItem
                     currentPage={ true }
-                    href="/portfolio-astro/contact"
+                    href="/contact"
                     label="Me contacter"
             />
         </Breadcrumbs>
@@ -22,7 +22,7 @@ import BreadcrumbsItem from "../components/shared/BreadcrumbsItem.astro";
         <section class="visite__container">
             <h2><span class="big">Magnifique,</span> <br/> un formulaire de contact </h2>
             <form action="https://formsubmit.co/79ad970aabba8b89699b56b262041340" method="POST">
-                <input type="hidden" name="_next" value="https://beuleubeuleu.github.io/portfolio-astro/merci">
+                <input type="hidden" name="_next" value="https://beuleubeuleu.github.io/merci">
                 <div class="visite__form--group">
                     <input type="text" name="nom" id="nom" placeholder=" " required/>
                     <span class="visite__form--highlight"></span>

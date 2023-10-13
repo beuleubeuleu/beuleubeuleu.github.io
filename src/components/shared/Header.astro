@@ -7,33 +7,33 @@ const menuItems: {
 }[] = [
     {
         title: "Accueil",
-        path: "/portfolio-astro/"
+        path: "/"
     },
     {
         title: "Projets",
-        path: "/portfolio-astro/projets",
+        path: "/projets",
         children: [
             {
              title: "Atikè",
-             path: "/portfolio-astro/projets/atike"
+             path: "/projets/atike"
             },
             {
              title: "Educa",
-             path: "/portfolio-astro/projets/educa"
+             path: "/projets/educa"
             },
             {
              title: "NoHasba",
-             path: "/portfolio-astro/projets/nohasba"
+             path: "/projets/nohasba"
             },
         ]
     },
     {
         title: "Mon CV",
-        path: "/portfolio-astro/cv"
+        path: "/cv"
     },
     {
         title: "Surprise",
-        path: "/portfolio-astro/contact"
+        path: "/contact"
     },
 ];
 ---
@@ -42,8 +42,8 @@ const menuItems: {
     <div class="container">
         <input aria-label="Mobile Menu" type="checkbox" class="header__burger"/>
 
-        <a href="/portfolio-astro/" class="header__logo">
-            <img src="/portfolio-astro/logo/contact.svg" alt="home logo" width="64" height="64">
+        <a href="/" class="header__logo">
+            <img src="/logo/contact.svg" alt="home logo" width="64" height="64">
         </a>
 
         <nav class="header__links">
