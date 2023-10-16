@@ -1,6 +1,8 @@
 ---
-import ProjectLayout from "../../layouts/ProjectLayout.astro";
-import heroImage     from "../../assets/projets/atike/atike-home.png"
+import ProjectLayout     from "../../layouts/ProjectLayout.astro";
+import heroImage         from "../../assets/projets/atike/atike-home.png"
+import userStoryMapImage from "../../assets/projets/atike/atike-user-story-map.png";
+import { Image }         from "astro:assets";
 ---
 
 <ProjectLayout titre="Atikè"
@@ -10,12 +12,170 @@ import heroImage     from "../../assets/projets/atike/atike-home.png"
                alt="Atikè, page d'accueil"
                techstack={ ["AstroJS", "AWS"] }
 >
+    <ul class="links">
+      {/*<li>
+       <a href="atike.fr"
+       target="_blank">Lien vers le site Atikè ()
+       </a>
+       </li>*/ }
+        <li>
+            <a href="/projets/educa#TLDR">TLDR</a>
+        </li>
+    </ul>
+    <p>
+        J'ai été sollicité pour la refonte d'un e-commerce wix. L'objectif était de réduire les coûts liés à
+        l'abonnement
+        wix. Je me suis lancé dans le projet en travaillant main dans la main avec les parties prenantes.
+    </p>
+    <h3>Analyse du besoin</h3>
+    <p>Avant de commencer à développer tout et n'importe quoi, j'ai dû élaborer une stratégie d'action qui commence par
+       l'analyse du besoin. <br>
+       J'ai organisé plusieurs ateliers, un <span class="italic">event storming</span> et un <span class="italic">user story mapping</span>.
+       Grâce à ceux-ci, une idée claire des fonctionnalités nécessaires s'est dessinée.</p>
+    <h4 class="italic">Event Storming</h4>
+    <p>Le premier atelier que j'ai organisé a été l'event storming qui nous a permis de comprendre et de visualiser les
+       processus, interactions et événements sur l'ensemble du parcours utilisateur.</p>
+    <h4 class="italic">User Story Mapping</h4>
+    <div class="textAndImage">
+        <div class="text">
+            <p>À partir des événements et parcours identifié lors de l'event storming, j'ai réalisé un <span
+                    class="italic">user story mapping</span> pour développer le site web de manière méthodique.</p>
+            <p>La photo suivante est un extrait du <span class="italic">user story mapping</span> que j'ai fait. À
+               partir des éléments de parcours
+               utilisateur identifiés lors de l'<span class="italic">event storming (choisir mes produits)</span> on
+               peut identifier une ou plusieurs épiques <span class="italic">(consulter le catalogue)</span>
+               qui elles-mêmes sont découpées en plusieurs tickets <span class="italic">(affiner ma recherche par catégorie)</span>.
+            </p>
+        </div>
+        <Image width="820" height="1180" src={ userStoryMapImage }
+               alt="extrait du user story mapping réalisé" format="webp"></Image>
+    </div>
+    <h3>Choix de la stack technique</h3>
+    <p>
+        Créer un site e-commerce est une démarche ambitieuse qui nécessite une planification minutieuse et des choix
+        technologiques judicieux. Dans cette section, nous allons suivre le processus de réflexion qui m'a a conduit à
+        choisir AstroJS et AWS pour mon site e-commerce.
+    </p>
+    <p>
+        Le voyage commence avec un objectif clair: Je veux créer un site e-commerce accessible. L'accessibilité
+        signifie que le site doit être ouvert à tous, y compris les personnes handicapées. Je veux que chaque
+        visiteur puisse parcourir le catalogue, ajouter des produits au panier et finaliser ses achats sans
+        obstacles.
+    </p>
+    <p>La performance est au cœur de l'expérience utilisateur. Les utilisateurs attendent des sites qui se chargent
+       rapidement, peu importe leur connexion. Une performance optimale favorise la conversion des visiteurs en
+       clients.</p>
+    <p>
+        Dans une dynamique de numérique responsable, la légèreté est une autre caractéristique essentielle. Les pages
+        légères se chargent
+        plus rapidement et consomment moins de bande passante. Cela signifie que les visiteurs auront une navigation
+        fluide, même sur des appareils mobiles ou des connexions lentes.
+    </p>
+    <p>
+        Le coût est toujours un facteur clé, c'est d'ailleurs la raison pour laquelle le site a été développé. il faut
+        minimiser les dépenses tout en obtenant les
+        meilleurs résultats. La bonne technologie permettra de réaliser des économies.
+    </p>
+    <p>
+        Je voulais utliser des technologies qui facilitent mon travail, pour me concentrer sur la création de
+        fonctionnalités
+        exceptionnelles.
+    </p>
+    <p>
+        J'ai identifié deux combinaisons de technologies prometteuses: Svelte avec AWS et AstroJS avec
+        AWS. Pour prendre une décision éclairée, j'ai décidé de réaliser une preuve de concept (POC)
+        pour chaque option.
+    </p>
+    <p>
+        Après une analyse approfondie et des tests rigoureux, AstroJS et AWS sont les
+        technologies que j'ai utilisé pour Atikè. Elles répondent à tous nos besoins, de
+        l'accessibilité à l'économie, en passant par la performance, la légèreté et la facilité de développement.
+    </p>
+    <h3>Développement du site</h3>
+    <p>
+        La clé de notre approche a été la mise à jour fréquente du site. J'ai adopté une méthodologie agile, ce
+        qui signifie que j'ai pu réagir rapidement aux commentaires et aux nouvelles opportunités. L'itération
+        constante nous a permis d'affiner continuellement l'expérience utilisateur.
+    </p>
+    <p>
+        Pour garantir la rapidité et la légèreté du site, j'ai opté pour une architecture de génération de site
+        statique (SSG). j'ai utilisé du JavaScript uniquement là où c'était nécessaire pour optimiser au maximum
+        les performances. Cette approche m'a permis de réduire la charge de travail du navigateur des visiteurs et
+        d'accélérer le chargement des pages.
+    </p>
+    <p>
+        Un autre aspect essentiel du processus de développement a été la recherche constante de l'excellence en
+        matière de qualité et de bonnes pratiques. J'ai fait appel à mon expertise qualité web pour m'assurer que
+        le site respecte les normes en matière de qualité web. Cela inclut la gestion de la
+        performance, de la sécurité, de l'accessibilité, et de la qualité de code. Et lorsqu'il ne
+        le fait pas, c'est en connaissance de cause en sachant qui cela affecte et comment.
+    </p>
+    <h3 id="TLDR">Too Long Didn't Read:</h3>
+    <p>
+        En résumé, la refonte de l'e-commerce Wix visait à réduire les coûts d'abonnement tout en offrant une expérience
+        améliorée. J'ai entamé ce projet en étroite collaboration avec les parties prenantes pour cerner les besoins. En
+        utilisant des atelier comme l'<span class="italic">event storming</span> et le <span class="italic">user story mapping</span>,
+        j'ai défini les fonctionnalités
+        essentielles.
+    </p>
+    <p>
+        J'ai opté pour une approche SSG avec AstroJS et AWS pour garantir l'accessibilité, la performance, la légèreté
+        et réduire les coûts. Le développement a suivi une approche agile avec des mises à jour fréquentes pour
+        améliorer l'expérience utilisateur.
+    </p>
 </ProjectLayout>
 
 <style>
-    h3{
-      text-align : center;
-      margin: 2em auto 1em;
+  p, ul {
+    margin    : auto auto 1em;
+    max-width : 800px;
+  }
+
+  h3, h4 {
+    text-align : center;
+    margin     : 2em auto 1em;
+  }
+
+  h4 {
+    font-size : 1rem;
+  }
+
+  .textAndImage {
+    display         : flex;
+    justify-content : center;
+    align-items     : flex-start;
+    gap             : 1em;
+    flex-direction  : column;
+
+    max-width       : 800px;
+    margin          : auto auto 1em;
+  }
+
+  .textAndImage p {
+    margin : 0 0 1em;
+  }
+
+  .textAndImage img {
+    width  : min(100%, 350px);
+    height : auto;
+    margin : auto;
+  }
+
+  #TLDR {
+    position   : relative;
+    margin-top : 60px;
+  }
+
+  #TLDR::before {
+    content : "";
+    display : block;
+    height  : 60px;
+  }
+
+  @media only screen and (min-width : 800px) {
+    .textAndImage {
+      flex-direction : row;
     }
+  }
 
 </style>
