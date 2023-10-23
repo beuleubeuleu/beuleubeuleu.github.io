@@ -47,7 +47,7 @@ const {
   .card {
     display        : flex;
     flex-direction : column;
-    border         : 1px solid black;
+    border         : 1px solid var(--accentTextColor);
     border-radius  : 3px;
     max-width      : 60ch;
     min-height     : 100%;
@@ -56,7 +56,8 @@ const {
   }
 
   .card:focus-within {
-    outline : 1px solid #000000EB;
+    outline : 1px solid var(--contrastTextColor2);
+      border: transparent;
   }
 
   .card:focus-within a:focus {

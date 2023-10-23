@@ -17,7 +17,7 @@ const { titre, description, blogTitle, src, alt, techstack } = Astro.props;
 ---
 
 <Layout titre={ titre } description={ description }>
-    <main transition:animate="fade">
+    <div class="main" transition:animate="fade">
         <Breadcrumbs>
             <BreadcrumbsItem
                     href="/"
@@ -58,11 +58,11 @@ const { titre, description, blogTitle, src, alt, techstack } = Astro.props;
                 <slot/>
             </section>
         </article>
-    </main>
+    </div>
 </Layout>
 
 <style>
-  main {
+  .main {
     width   : min(100%, 1196px);
     margin  : auto;
     padding : .5em;
@@ -84,12 +84,14 @@ const { titre, description, blogTitle, src, alt, techstack } = Astro.props;
   .tag {
       color: whitesmoke;
       text-decoration: none;
-      padding: 0.1em 0.4em;
+      padding: 1em 4em;
       font-size: 1rem;
       border-radius: 3px 3px 0 0;
+      background : var(--nord6);
+      width : 100%;
 
       display         : flex;
-      justify-content : flex-start;
+      justify-content : center;
       align-items     : center;
   }
   .tag img {
@@ -97,9 +99,19 @@ const { titre, description, blogTitle, src, alt, techstack } = Astro.props;
       height: 32px;
   }
 
+  article {
+      background : var(--accentBackgroundColor);
+      border-radius: 5px;
+  }
+
+  .text {
+      padding : 1em;
+  }
+
   h1 {
     font-size : 2em;
-    color     : #444;
+      color     : var(--textColor);
+      padding-inline : 1em;
   }
 
   @media only screen and (min-width: 400px){

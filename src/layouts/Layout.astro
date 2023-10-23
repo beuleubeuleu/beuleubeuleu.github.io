@@ -26,11 +26,13 @@ const { titre, description } = Astro.props;
 </head>
 <body transition:animate="slide">
 <Header/>
-<slot/>
+    <slot/>
 <Footer/>
 </body>
 </html>
 <style is:global lang="scss">
+
+
   :root {
     --accent       : 136, 58, 234;
     --accent-light : 224, 204, 250;
@@ -46,22 +48,53 @@ const { titre, description } = Astro.props;
   }
 
   html {
-    /* hide scrollbar */
-    -ms-overflow-style : none; /* IE and Edge */
-    scrollbar-width    : none; /* Firefox */
+    --nord0                 : #2E3440;
+    --nord1                 : #3B4252;
+    --nord2                 : #434C5E;
+    --nord3                 : #4C566A;
+    --nord4                 : #D8DEE9;
+    --nord5                 : #E5E9F0;
+    --nord6                 : #ECEFF4;
+    --nord7                 : #8FBCBB;
+    --nord8                 : #88C0D0;
+    --nord9                 : #81A1C1;
+    --nord10                : #5E81AC;
+    --nord11                : #BF616A;
+    --nord12                : #D08770;
+    --nord13                : #EBCB8B;
+    --nord14                : #A3BE8C;
+    --nord15                : #B48EAD;
 
+    --backgroundColor       : #FFFFFF;
+    --accentBackgroundColor : var(--nord6);
+    --backgroundUI          : var(--nord2);
+    --textColor             : var(--nord0);
+    --accentTextColor       : var(--nord2);
+    --contrastTextColor     : var(--nord8);
+    --contrastTextColor2    : var(--nord15);
+
+    background-color        : var(--backgroundColor);
+
+    color                   : var(--textColor);
+    transition              : background-color 100ms ease-in-out, color 100ms ease-in-out;
   }
 
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  html::-webkit-scrollbar {
-    display : none;
+  html.dark {
+      --backgroundColor       : var(--nord0);
+      --accentBackgroundColor : var(--nord1);
+      --backgroundUI          : var(--nord4);
+      --textColor             : var(--nord5);
+      --accentTextColor       : var(--nord6);
+      --contrastTextColor     : var(--nord8);
+      --contrastTextColor2    : var(--nord15);
   }
+
 
   body {
     line-height            : 1.5;
     -webkit-font-smoothing : antialiased;
-      background         : rgba(255, 255, 255, 0.9);
   }
+
 
   img,
   picture,
@@ -87,12 +120,12 @@ const { titre, description } = Astro.props;
   label {
     overflow-wrap : break-word;
     font-family   : "Montserrat", sans-serif;
-    color         : black;
+    color         : inherit;
     font-size     : 1.1em;
   }
 
   a:hover {
-    color : lightseagreen;
+    color : var(--contrastTextColor2);
   }
 
   ul {
@@ -106,7 +139,9 @@ const { titre, description } = Astro.props;
   .bold {
     font-weight : 600;
   }
+
   .italic {
-      font-style : italic;
+    font-style : italic;
   }
+
 </style>
