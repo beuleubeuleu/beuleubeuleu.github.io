@@ -29,10 +29,10 @@ import BreadcrumbsItem from "../components/shared/BreadcrumbsItem.astro";
                     <label for="nom">Nom :</label>
                 </div>
                 <div class="visite__form--group">
-                    <input type="email" name="email" id="email" placeholder=" " required/>
+                    <input type="email" name="email" id="email" placeholder=" "/>
                     <span class="visite__form--highlight"></span>
                     <span class="visite__form--bar"></span>
-                    <label for="email">Email :</label>
+                    <label for="email">Email* :</label>
                 </div>
                 <div class="visite__form--group">
                     <textarea name="message" id="message" placeholder=" " required/>
@@ -42,6 +42,11 @@ import BreadcrumbsItem from "../components/shared/BreadcrumbsItem.astro";
                 </div>
                 <input type="submit" value="Envoyer"/>
             </form>
+            <div class="disclaimer">
+                <p>Je reçois le formulaire par mail lorsque vous cliquez sur envoyer.</p> <br>
+                <p>* L'email n'est nécessaire que si vous attendez une réponse au message, et ne sera utilisé que pour
+                   répondre a votre message.</p>
+            </div>
         </section>
     </main>
 </Layout>
@@ -93,13 +98,13 @@ import BreadcrumbsItem from "../components/shared/BreadcrumbsItem.astro";
     padding-inline : 3em;
     transition     : 0.2s ease all;
     box-shadow     : rgba(99, 99, 99, 0.2) 0 2px 8px 0;
-      background : var(--backgroundUI);
-      color      : var(--accentBackgroundColor);
+    background     : var(--backgroundUI);
+    color          : var(--accentBackgroundColor);
   }
 
   input[type="submit"]:hover {
-      background : var(--accentBackgroundColor);
-      color : var(--textColor)
+    background : var(--accentBackgroundColor);
+    color      : var(--textColor)
   }
 
   input[type="submit"]:focus {
@@ -188,5 +193,11 @@ import BreadcrumbsItem from "../components/shared/BreadcrumbsItem.astro";
   textarea:focus ~ .visite__form--bar:before,
   textarea:focus ~ .visite__form--bar:after {
     width : 50%;
+  }
+
+  .disclaimer {
+      color: var(--accentTextColor);
+      margin-top : 2em;
+      opacity: .8;
   }
 </style>

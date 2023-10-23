@@ -1,10 +1,38 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from "../components/shared/Breadcrumbs.astro";
+import BreadcrumbsItem from "../components/shared/BreadcrumbsItem.astro";
+import { Image } from "astro:assets";
 ---
 
-<Layout titre="Merci!" description="Remerciement pour la completion du formulaire de contact du portfolio de Billy Klotz">
+<Layout titre="Merci !" description="Remerciement pour la completion du formulaire de contact du portfolio de Billy Klotz">
     <main>
-        merci temporaire, belle page incoming
+        <Breadcrumbs>
+            <BreadcrumbsItem
+                href="/"
+                label="Page d'accueil"
+            />
+            <BreadcrumbsItem
+                currentPage={true}
+                label="Merci beaucoup !"
+            />
+        </Breadcrumbs>
+        <section class="thankyou">
+            <h2>Bien envoyé !</h2>
+            <p>Merci d'avoir pris le temps de m'écrire. Je répondrai à votre message dès que possible ! </p>
+            <div class="socials">
+                <p>
+                    Restons en contact sur linkedIn !
+                </p>
+                <div>
+                    <a href="https://www.linkedin.com/in/billy-klotz" target="_blank"
+                       aria-label="Voir ma page linked in">
+                        <Image class="social-img" src="/logo/In-Blue-72.png" alt="logo linked in" width="82"
+                               height="72"/>
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
 </Layout>
 
@@ -14,4 +42,27 @@ import Layout from '../layouts/Layout.astro';
     margin : auto;
     padding : .5em;
   }
+
+  .thankyou {
+      width: min(100%, 350px);
+      background : var(--accentBackgroundColor);
+      padding : 1em;
+      border-radius: 5px;
+      margin : 6em auto auto;
+  }
+  
+  .socials {
+      margin-top : 2em;
+      display : flex;
+      justify-content : center;
+      align-items : flex-start;
+      flex-direction: column;
+  }
+
+  .socials div {
+      background : var(--nord6);
+      padding : 1em;
+      border-radius: 8px;
+  }
+
 </style>

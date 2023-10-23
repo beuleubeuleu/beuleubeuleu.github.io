@@ -1,26 +1,26 @@
 ---
+import {Image} from "astro:assets"
 
 
 ---
 
 <div class="socials">
     <a href="https://www.linkedin.com/in/billy-klotz" target="_blank" aria-label="Voir ma page linked in">
-        <img class="social-img" src="/logo/linkedIn.svg" alt="logo linked in" width="64" height="64" loading="lazy">
+        <Image class="social-img" src="/logo/In-Blue-72.png" alt="logo linked in" width="82" height="72"/>
     </a>
     <a href="https://github.com/beuleubeuleu" target="_blank" aria-label="Visitez ma page github">
-        <img class="social-img" src="/logo/github.svg" alt="logo github" width="64" height="64" loading="lazy">
+        <Image class="social-img" src="/logo/github-mark.svg" alt="logo github" width="64" height="64"/>
     </a>
 </div>
 <a href="https://www.codewars.com/users/beuleubeuleu" target="_blank" aria-label="Voir mon profile sur Codewars">
-    <img class="codewars" src="https://www.codewars.com/users/beuleubeuleu/badges/micro" alt="Mon profile CodeWars"
-         width="288" height="48">
+    <Image class="codewars" src="https://www.codewars.com/users/beuleubeuleu/badges/micro" alt="Mon profile CodeWars" width="240" height="40" format="svg"/>
 </a>
 
 
 <style>
   .social-img {
     max-width  : 48px;
-    max-height : 48px;
+      height: auto;
   }
 
   .codewars {
@@ -33,5 +33,8 @@
     align-items     : center;
     gap             : .5em;
     align-self      : center;
+      background : var(--nord6);
+      padding : 1em;
+      border-radius: 8px;
   }
 </style>
