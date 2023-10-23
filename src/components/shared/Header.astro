@@ -12,29 +12,29 @@ const menuItems: {
     },
     {
         title: "Projets",
-        path: "/projets",
+        path: "/projets/",
         children: [
             {
              title: "Atikè",
-             path: "/projets/atike"
+             path: "/projets/atike/"
             },
             {
              title: "Educa",
-             path: "/projets/educa"
+             path: "/projets/educa/"
             },
             {
              title: "NoHasba",
-             path: "/projets/nohasba"
+             path: "/projets/nohasba/"
             },
         ]
     },
     {
         title: "Mon CV",
-        path: "/cv"
+        path: "/cv/"
     },
     {
         title: "Surprise",
-        path: "/contact"
+        path: "/contact/"
     },
 ];
 ---
@@ -178,11 +178,11 @@ const menuItems: {
          position: absolute;
          background: linear-gradient(
              to bottom,
-             #555 20%,
+             var(--textColor) 20%,
              transparent 20% 40%,
-             #555 40% 60%,
+             var(--textColor) 40% 60%,
              transparent 60% 80%,
-             #555 80% 100%
+             var(--textColor) 80% 100%
          );
      }
 
