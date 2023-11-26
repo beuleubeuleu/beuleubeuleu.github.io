@@ -1,11 +1,11 @@
 ---
-import ProjectLayout     from "../../layouts/ProjectLayout.astro";
-import heroImage         from "../../assets/projets/atike/atike-home.png"
+import ArticleLayout from "../../layouts/ArticleLayout.astro";
+import heroImage     from "../../assets/projets/atike/atike-home.png"
 import userStoryMapImage from "../../assets/projets/atike/atike-user-story-map.png";
 import { Image }         from "astro:assets";
 ---
 
-<ProjectLayout titre="Atikè"
+<ArticleLayout titre="Atikè"
                description="Article descriptif du site 'Atikè'"
                blogTitle="Atikè: Une boutique en ligne pragmatique"
                src={ heroImage }
@@ -126,7 +126,7 @@ import { Image }         from "astro:assets";
         et réduire les coûts. Le développement a suivi une approche agile avec des mises à jour fréquentes pour
         améliorer l'expérience utilisateur.
     </p>
-</ProjectLayout>
+</ArticleLayout>
 
 <style>
   p, ul {

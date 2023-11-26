@@ -1,5 +1,5 @@
 ---
-import ProjectLayout from "../../layouts/ProjectLayout.astro";
+import ArticleLayout from "../../layouts/ArticleLayout.astro";
 import heroImage     from "../../assets/projets/nohasba/nohasba-home.png"
 import groupeImage   from "../../assets/projets/nohasba/nohasba-createGroup.png"
 import expensesImage from "../../assets/projets/nohasba/nohasba-expenses.png"
@@ -12,7 +12,7 @@ import AccordionItem from "../../components/shared/AccordionItem.astro";
 import Accordion     from "../../components/shared/Accordion.astro";
 ---
 
-<ProjectLayout titre="NoHasba"
+<ArticleLayout titre="NoHasba"
                description="Article descriptif de mon projet fullstack 'NoHasba'"
                blogTitle="NoHasba: Persistence JSON, relationnelle, ou les deux..."
                src={ heroImage }
@@ -284,7 +284,7 @@ import Accordion     from "../../components/shared/Accordion.astro";
         Enfin, une partie essentielle du projet est l'algorithme de calcul des dettes entre les membres d'un groupe,
         expliqué en détail.
     </p>
-</ProjectLayout>
+</ArticleLayout>
 
 <style>
   p, ul, ol {
