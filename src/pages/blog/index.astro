@@ -20,6 +20,10 @@ import { myArticles } from "../../data/myArticles";
             />
         </Breadcrumbs>
         <h1>Mes articles</h1>
+        <div class="filtre">
+            <a href="/blog/projets">Filter par projet(s)</a>
+            <a href="/blog/experiences">Filter par expérience(s)</a>
+        </div>
         <section>
           { myArticles.map(article =>
                   <ArticleCard title={ article.titre }
@@ -52,5 +56,11 @@ import { myArticles } from "../../data/myArticles";
     margin-top      : 1em;
     gap             : 1em;
     flex-wrap       : wrap;
+  }
+  .filtre {
+      display : flex;
+      flex-direction: column;
+      justify-content : center;
+      align-items : flex-end;
   }
 </style>

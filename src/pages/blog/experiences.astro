@@ -6,7 +6,7 @@ import ArticleCard    from "../../components/blog/ArticleCard.astro";
 import { myArticles } from "../../data/myArticles";
 ---
 
-<Layout titre="Mes blog" description="Vous pourrez retrouvez ici tous mes articles de projets">
+<Layout titre="Mon blog" description="Vous pourrez retrouvez ici tous mes articles sur mes expériences.">
 
     <main transition:animate="fade">
         <Breadcrumbs>
@@ -18,23 +18,23 @@ import { myArticles } from "../../data/myArticles";
                     href="/blog/"
                     label="Mes articles"
             /><BreadcrumbsItem
-                    currentPage={ true }
-                    label="Mes projets"
-            />
+                currentPage={ true }
+                label="Mes expériences"
+        />
         </Breadcrumbs>
-        <h1>Mes projets</h1>
+        <h1>Mes expériences</h1>
         <div class="filtre">
             <a href="/blog/">Voir tous mes articles</a>
         </div>        <section>
-          { myArticles.filter(article=>article.type==="Projet").map(article =>
-                  <ArticleCard title={ article.titre }
-                               img={ article.img }
-                               desc={ article.description }
-                               techstack={ article.techStack }
-                               url={ article.href }
-                               type={ article.type }/>
-          ) }
-        </section>
+      { myArticles.filter(article=>article.type==="Expérience").map(article =>
+              <ArticleCard title={ article.titre }
+                           img={ article.img }
+                           desc={ article.description }
+                           techstack={ article.techStack }
+                           url={ article.href }
+                           type={ article.type }/>
+      ) }
+    </section>
     </main>
 </Layout>
 
@@ -59,9 +59,9 @@ import { myArticles } from "../../data/myArticles";
     flex-wrap       : wrap;
   }
   .filtre {
-      display : flex;
-      flex-direction: column;
-      justify-content : center;
-      align-items : flex-end;
+    display : flex;
+    flex-direction: column;
+    justify-content : center;
+    align-items : flex-end;
   }
 </style>
