@@ -10,10 +10,11 @@ interface Props {
   blogTitle: string;
   src: any;
   alt: string;
-  techstack:string[]
+  techstack:string[];
+  date: string
 }
 
-const { titre, description, blogTitle, src, alt, techstack } = Astro.props;
+const { titre, description, blogTitle, src, alt, techstack, date } = Astro.props;
 ---
 
 <Layout titre={ titre } description={ description }>
@@ -25,7 +26,7 @@ const { titre, description, blogTitle, src, alt, techstack } = Astro.props;
             />
             <BreadcrumbsItem
                     href="/projets/"
-                    label="Mes projets"
+                    label="Mes articles"
             />
             <BreadcrumbsItem
                     currentPage={ true }
@@ -42,6 +43,7 @@ const { titre, description, blogTitle, src, alt, techstack } = Astro.props;
                         )
                     }) }
                 </div>
+                <p class="italic">{date}</p>
                 <h1 transition:name={ `hero-title-${ titre }` }>{ blogTitle }</h1>
                 <Image
                     src={ src }

@@ -1,0 +1,56 @@
+---
+import Layout          from "../../layouts/Layout.astro";
+import Breadcrumbs     from "../../components/shared/Breadcrumbs.astro";
+import BreadcrumbsItem from "../../components/shared/BreadcrumbsItem.astro";
+import ArticleCard    from "../../components/blog/ArticleCard.astro";
+import { myArticles } from "../../data/myArticles";
+---
+
+<Layout titre="Mon blog" description="Vous pourrez retrouvez ici tous mes articles">
+
+    <main transition:animate="fade">
+        <Breadcrumbs>
+            <BreadcrumbsItem
+                    href="/"
+                    label="Page d'accueil"
+            />
+            <BreadcrumbsItem
+                    currentPage={ true }
+                    label="Mes articles"
+            />
+        </Breadcrumbs>
+        <h1>Mes articles</h1>
+        <section>
+          { myArticles.map(article =>
+                  <ArticleCard title={ article.titre }
+                               img={ article.img }
+                               desc={ article.description }
+                               techstack={ article.techStack }
+                               url={ article.href }
+                               type={ article.type }/>
+          ) }
+        </section>
+    </main>
+</Layout>
+
+<style>
+  main {
+    width   : min(100%, 1196px);
+    margin  : auto;
+    padding : .5em;
+  }
+
+  h1 {
+    font-size : 2em;
+    color     : var(--textColor);
+  }
+
+  section {
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    margin-top      : 1em;
+    gap             : 1em;
+    flex-wrap       : wrap;
+  }
+</style>

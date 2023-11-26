@@ -1,42 +1,7 @@
 ---
 import Socials from "../Socials.astro";
-import ThemeIcon from "./ThemeIcon.astro";
-const menuItems: {
-    title: string;
-    path: string;
-    children?: { title: string; path: string }[];
-}[] = [
-    {
-        title: "Accueil",
-        path: "/"
-    },
-    {
-        title: "Projets",
-        path: "/projets/",
-        children: [
-            {
-             title: "Atikè",
-             path: "/projets/atike/"
-            },
-            {
-             title: "Educa",
-             path: "/projets/educa/"
-            },
-            {
-             title: "NoHasba",
-             path: "/projets/nohasba/"
-            },
-        ]
-    },
-    {
-        title: "Mon CV",
-        path: "/cv/"
-    },
-    {
-        title: "Surprise",
-        path: "/contact/"
-    },
-];
+import ThemeIcon     from "./ThemeIcon.astro";
+import { menuItems } from "../../data/menuItems";
 ---
 
 <header class="header" transition:name="header">
