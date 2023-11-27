@@ -1,0 +1,97 @@
+---
+import ArticleLayout     from "../../layouts/ArticleLayout.astro";
+import heroImage         from "../../assets/blog/aoc2023/aoc2023-home.png"
+import userStoryMapImage from "../../assets/blog/atike/atike-user-story-map.png";
+import { Image }         from "astro:assets";
+
+const java = "{Java}"
+const go = "{Go}"
+const haskell = "{Haskell}"
+---
+
+<ArticleLayout titre="Advent of Code 2023"
+               description="Article descriptif de ma démarche pour la completion de l'advent of code 2023."
+               blogTitle="Advent of Code 2023: Les différents paradigmes de programmation"
+               src={ heroImage }
+               alt="Advent Of Code, page à propos"
+               techstack={ ["Java", "Golang", "Haskell"] }
+               date="27 Novembre 2023"
+
+>
+    <ul class="links">
+        <li>
+            <a href="https://github.com/beuleubeuleu/adventOfCode2023"
+               target="_blank">
+                Lien vers mon repo de solutions
+            </a>
+        </li>
+        <li>
+            <a href="/projets/educa#TLDR/">TLDR</a>
+        </li>
+    </ul>
+
+    <h2>Ma démarche</h2>
+    <p>blabla</p>
+    <h2>Semaine 1: Orienté Objet {java}</h2>
+    <h2>Semaine 2: Impératif {go}</h2>
+    <h2>Semaine 3: Fonctionnel {haskell}</h2>
+    <h2>Semaine4: ///</h2>
+
+    <h2 id="TLDR">Too Long Didn't Read:</h2>
+
+</ArticleLayout>
+
+<style>
+  p, ul {
+    margin    : auto auto 1em;
+    max-width : 800px;
+  }
+
+  h2, h3 {
+    text-align : center;
+    margin     : 2em auto 1em;
+  }
+
+  h3 {
+    font-size : 1rem;
+  }
+
+  .textAndImage {
+    display         : flex;
+    justify-content : center;
+    align-items     : flex-start;
+    gap             : 1em;
+    flex-direction  : column;
+
+    max-width       : 800px;
+    margin          : auto auto 1em;
+  }
+
+  .textAndImage p {
+    margin : 0 0 1em;
+  }
+
+  .textAndImage img {
+    width  : min(100%, 350px);
+    height : auto;
+    margin : auto;
+  }
+
+  #TLDR {
+    position   : relative;
+    margin-top : 60px;
+  }
+
+  #TLDR::before {
+    content : "";
+    display : block;
+    height  : 60px;
+  }
+
+  @media only screen and (min-width : 800px) {
+    .textAndImage {
+      flex-direction : row;
+    }
+  }
+
+</style>
