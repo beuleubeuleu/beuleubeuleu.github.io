@@ -1,0 +1,80 @@
+---
+import { projetEnCours } from "../data/projetEnCours";
+import ArticleCard    from "./blog/ArticleCard.astro";
+import { Image }      from "astro:assets";
+---
+<section>
+    <div class="fade">
+        <h2>Projets en cours</h2>
+        <div class="container">
+          { projetEnCours.map(article =>
+                  <div class="projet">
+
+                      <ArticleCard title={ article.titre }
+                                   desc={ article.description }
+                                   techstack={ article.techStack }
+                                   url={ article.href }
+                                   type={ article.type }/>
+
+                      { article.href? <a href={ article.href }> Voir l'article</a>: <p>Article disponible prochainement...</p> }
+                  </div>) }
+        </div>
+    </div>
+    <div>
+        <h2>parcours</h2>
+        <ul>
+            <li>stopped school early?</li>
+            <li>working</li>
+            <li>dev certif on the side</li>
+            <li>Simplon RNCP niveau 5</li>
+            <li>Opquast expert</li>
+        </ul>
+    </div>
+</section>
+
+<style>
+  section {
+    margin-top : 15em;
+  }
+
+  .projet {
+    padding         : 1em;
+    border-radius   : 4px;
+    margin-top      : 2em;
+    margin-inline   : auto;
+    width           : 288px;
+
+    display         : flex;
+    flex-direction  : column;
+    gap             : 1em;
+    justify-content : center;
+    align-items     : flex-start;
+  }
+
+  .container {
+      display : flex;
+      flex-wrap: wrap;
+      justify-content : center;
+      align-items : flex-start;
+  }
+
+  .fade {
+    animation          : fade both;
+    animation-timeline : view();
+    animation-range    : cover 0% cover 70%
+  }
+
+  @keyframes fade {
+    0% {
+      opacity   : 0;
+      transform : translateY(500%);
+    }
+    40% {
+      opacity   : 1;
+      transform : translateY(0);
+    }
+    100% {
+      opacity : 1;
+    }
+  }
+</style>

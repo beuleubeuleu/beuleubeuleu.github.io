@@ -4,7 +4,7 @@
 <section class="hero">
     <div class="text">
         <p class="titre">Bonjour!</p>
-        <p class="sous-titre">Billy Klotz, Developpeur Web</p>
+        <h1 class="sous-titre">Billy Klotz, Developpeur Web</h1>
         <p class="desc">
             En tant que développeur web
             certifié expert qualité web par
@@ -27,7 +27,7 @@
     align-items     : flex-start;
     gap             : 2em;
 
-    padding-top     : 175px;
+    padding-top     : 150px;
   }
 
   .text {
@@ -40,8 +40,9 @@
   }
 
   .sous-titre {
-    font-size : 2em;
-    color     : var(--accentTextColor);
+    font-size   : 1.7em;
+    font-weight : 400;
+    color       : var(--accentTextColor);
   }
 
   .desc {
@@ -54,7 +55,7 @@
     flex-direction  : column;
     justify-content : center;
     align-items     : flex-start;
-      gap: 1em;
+    gap             : 1em;
   }
 
 
@@ -77,20 +78,20 @@
   }
 
   .cta a:active {
-    transform: translate(2px, -2px);
+    transform : translate(2px, -2px);
   }
 
   @media screen and (min-width : 450px) {
-      .hero {
-          width: 450px;
-          margin : auto;
-      }
+    .hero {
+      width  : 450px;
+      margin : auto;
+    }
 
   }
 
   @media screen and (min-width : 675px) {
     .hero {
-        width : auto;
+      width          : auto;
       flex-direction : row;
       padding-top    : 100px;
     }

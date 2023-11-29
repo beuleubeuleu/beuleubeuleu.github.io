@@ -1,24 +1,28 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from "../components/Hero.astro";
+import Layout from "../layouts/Layout.astro";
+import Hero   from "../components/Hero.astro";
+import LandingIntro   from "../components/LandingIntro.astro";
 ---
 
 <Layout titre="Accueil" description="Page d'accueil du portfolio de Billy Klotz">
-	<main>
-		<Hero/>
-		<p>🚧 En cours de construction 🚧 <br> merci de votre compréhension </p>
-	</main>
+    <main>
+        <Hero/>
+        <p>🚧 En cours de construction 🚧 <br> merci de votre compréhension </p>
+        <LandingIntro/>
+
+    </main>
 </Layout>
 
 <style>
-	main {
-		width: min(100%, 1196px);
-		margin : auto;
-		padding : .5em;
-	}
-	p {
-		text-align : center;
-		margin-block: 2em;
-		font-size : 1.2em;
-	}
+  main {
+    width   : min(100%, 1196px);
+    margin  : auto;
+    padding : .5em;
+  }
+
+  p {
+    text-align   : center;
+    margin-block : 2em;
+    font-size    : 1.2em;
+  }
 </style>

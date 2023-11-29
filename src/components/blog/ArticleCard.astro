@@ -11,7 +11,7 @@ interface Props {
 }
 
 const {
-        url       = "error",
+        url       ,
         img       = "https://fakeimg.pl/640x360",
         title     = "Default title",
         desc      = "Default description",
@@ -30,7 +30,7 @@ const {
           ) }
         </div>
         <h2 transition:name={ `hero-title-${ title }` }>
-            <a href={ url }>{ title }</a>
+            <a class={url?"":"disabled-link"} href={ url }>{ title }</a>
         </h2>
         <p class="italic">
           { type }
