@@ -11,6 +11,7 @@ export const myArticles = [
     img: aoc2023Home,
     description: "Paradigme de programmation",
     type: "Expérience",
+    id:"article-412442"
   },
   {
     titre: "Atikè",
@@ -19,21 +20,24 @@ export const myArticles = [
     img: atikeHome,
     description: "E-commerce",
     type: "Projet",
+    id:"article-415635"
   },
   {
     titre: "NoHasba",
-    techStack: ["React", "MySQL"],
+    techStack: ["React", "NodeJS", "MySQL"],
     href: "/blog/nohasba/",
     img: nohasbaHome,
     description: "Gestionnaire de dépenses",
     type: "Projet",
+    id:"article-143624"
   },
   {
     titre: "Educa",
-    techStack: ["AstroJS", "React", "MongoDB"],
+    techStack: ["AstroJS", "React", "NodeJS", "MongoDB"],
     href: "/blog/educa/",
     img: educaHome,
     description: "Blog",
     type: "Projet",
+    id:"article-132356"
   }
 ]

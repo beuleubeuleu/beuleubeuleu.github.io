@@ -14,7 +14,8 @@ import { Image }      from "astro:assets";
                                    desc={ article.description }
                                    techstack={ article.techStack }
                                    url={ article.href }
-                                   type={ article.type }/>
+                                   type={ article.type }
+                                   id={ article.id }/>
 
                       { article.href? <a href={ article.href }> Voir l'article</a>: <p>Article disponible prochainement...</p> }
                   </div>) }

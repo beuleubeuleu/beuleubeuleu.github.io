@@ -11,10 +11,11 @@ interface Props {
   src: any;
   alt: string;
   techstack:string[];
-  date: string
+  date: string;
+  id:string
 }
 
-const { titre, description, blogTitle, src, alt, techstack, date } = Astro.props;
+const { titre, description, blogTitle, src, alt, techstack, date, id } = Astro.props;
 ---
 
 <Layout titre={ titre } description={ description }>
@@ -35,11 +36,11 @@ const { titre, description, blogTitle, src, alt, techstack, date } = Astro.props
         </Breadcrumbs>
         <article>
             <section class="hero">
-                <div class="tag" transition:name={ `hero-tech-${ titre }` }>
+                <div class="tag" >
                     { techstack.map((tech) => {
                         return (
-                            <Image src={ `/logo/${ tech.toLowerCase() }.svg` } alt={ tech } width="64"
-                                   height="64"></Image>
+                            <Image  src={ `/logo/${ tech.toLowerCase() }.svg` } alt={ tech } width="64"
+                                   height="64" transition:name={ `hero-tech-${ tech }-${id}` } />
                         )
                     }) }
                 </div>

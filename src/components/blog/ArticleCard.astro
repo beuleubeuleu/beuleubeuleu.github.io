@@ -11,7 +11,8 @@ interface Props {
 }
 
 const {
-        url       ,
+        url,
+        id,
         img       = "https://fakeimg.pl/640x360",
         title     = "Default title",
         desc      = "Default description",
@@ -23,14 +24,14 @@ const {
 <div class="card">
 
     <div class="card__content">
-        <div class="card__content--techstack" transition:name={ `hero-tech-${ title }` }>
+        <div class="card__content--techstack">
           { techstack.map((tech) =>
                   <Image src={ `/logo/${ tech.toLowerCase() }.svg` } alt={ tech } width="64"
-                         height="64"></Image>
+                         height="64" transition:name={ `hero-tech-${ tech }-${ id }` }/>
           ) }
         </div>
         <h2 transition:name={ `hero-title-${ title }` }>
-            <a class={url?"":"disabled-link"} href={ url }>{ title }</a>
+            <a class={ url? "": "disabled-link" } href={ url }>{ title }</a>
         </h2>
         <p class="italic">
           { type }
