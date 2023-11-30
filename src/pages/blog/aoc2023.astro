@@ -3,6 +3,8 @@ import ArticleLayout     from "../../layouts/ArticleLayout.astro";
 import heroImage         from "../../assets/blog/aoc2023/aoc2023-home.png"
 import userStoryMapImage from "../../assets/blog/atike/atike-user-story-map.png";
 import { Image }         from "astro:assets";
+import Accordion         from "../../components/shared/Accordion.astro";
+import AccordionItem     from "../../components/shared/AccordionItem.astro";
 
 const java = "{Java}"
 const go = "{Go}"
@@ -26,10 +28,12 @@ const haskell = "{Haskell}"
                 Lien vers mon repo de solutions
             </a>
         </li>
-        <li>
-            <a class="disabled-link" href="/projets/educa#TLDR/">TLDR</a>
-        </li>
     </ul>
+
+    <Accordion>
+        <AccordionItem header="Too Long Didn't Read">
+            <p>L'Advent of code est encore en cours, le TLDR sera dispo à la fin pour conclure mon expérience.</p></AccordionItem>
+    </Accordion>
 
     <h2>Ma démarche</h2>
     <p>Pour cette édition 2023 de l'Advent of Code, j'ai pris la décision de m'aventurer au-delà des
@@ -53,9 +57,6 @@ const haskell = "{Haskell}"
     <h2>Semaine 3: Impératif { go }</h2>
 
     <h2>Semaine4: ///</h2>
-
-    <h2 id="TLDR">Too Long Didn't Read:</h2>
-    <p>L'Advent of code est encore en cours, le TLDR sera dispo à la fin pour conclure mon expérience.</p>
 </ArticleLayout>
 
 <style>
@@ -92,17 +93,6 @@ const haskell = "{Haskell}"
     width  : min(100%, 350px);
     height : auto;
     margin : auto;
-  }
-
-  #TLDR {
-    position   : relative;
-    margin-top : 60px;
-  }
-
-  #TLDR::before {
-    content : "";
-    display : block;
-    height  : 60px;
   }
 
   @media only screen and (min-width : 800px) {

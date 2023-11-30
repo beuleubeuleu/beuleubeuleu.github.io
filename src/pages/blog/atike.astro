@@ -3,6 +3,8 @@ import ArticleLayout     from "../../layouts/ArticleLayout.astro";
 import heroImage         from "../../assets/blog/atike/atike-home.png"
 import userStoryMapImage from "../../assets/blog/atike/atike-user-story-map.png";
 import { Image }         from "astro:assets";
+import AccordionItem     from "../../components/shared/AccordionItem.astro";
+import Accordion         from "../../components/shared/Accordion.astro";
 ---
 
 <ArticleLayout titre="Atikè"
@@ -22,10 +24,25 @@ import { Image }         from "astro:assets";
                 Lien vers le site Atikè
             </a>
         </li>
-        <li>
-            <a href="/projets/educa#TLDR/">TLDR</a>
-        </li>
     </ul>
+
+    <Accordion>
+        <AccordionItem header="Too Long Didn't Read">
+            <p>
+                En résumé, la refonte de l'e-commerce Wix visait à réduire les coûts d'abonnement tout en offrant une expérience
+                améliorée. J'ai entamé ce projet en étroite collaboration avec les parties prenantes pour cerner les besoins. En
+                utilisant des atelier comme l'<span class="italic">event storming</span> et le <span class="italic">user story mapping</span>,
+                j'ai défini les fonctionnalités
+                essentielles.
+            </p>
+            <p>
+                J'ai opté pour une approche SSG avec AstroJS et AWS pour garantir l'accessibilité, la performance, la légèreté
+                et réduire les coûts. Le développement a suivi une approche agile avec des mises à jour fréquentes pour
+                améliorer l'expérience utilisateur.
+            </p>
+        </AccordionItem>
+    </Accordion>
+
     <p>
         J'ai été sollicité pour la refonte d'un e-commerce wix. L'objectif était de réduire les coûts liés à
         l'abonnement
@@ -114,19 +131,7 @@ import { Image }         from "astro:assets";
         performance, de la sécurité, de l'accessibilité, et de la qualité de code. Et lorsqu'il ne
         le fait pas, c'est en connaissance de cause en sachant qui cela affecte et comment.
     </p>
-    <h2 id="TLDR">Too Long Didn't Read:</h2>
-    <p>
-        En résumé, la refonte de l'e-commerce Wix visait à réduire les coûts d'abonnement tout en offrant une expérience
-        améliorée. J'ai entamé ce projet en étroite collaboration avec les parties prenantes pour cerner les besoins. En
-        utilisant des atelier comme l'<span class="italic">event storming</span> et le <span class="italic">user story mapping</span>,
-        j'ai défini les fonctionnalités
-        essentielles.
-    </p>
-    <p>
-        J'ai opté pour une approche SSG avec AstroJS et AWS pour garantir l'accessibilité, la performance, la légèreté
-        et réduire les coûts. Le développement a suivi une approche agile avec des mises à jour fréquentes pour
-        améliorer l'expérience utilisateur.
-    </p>
+
 </ArticleLayout>
 
 <style>
@@ -165,16 +170,6 @@ import { Image }         from "astro:assets";
     margin : auto;
   }
 
-  #TLDR {
-    position   : relative;
-    margin-top : 60px;
-  }
-
-  #TLDR::before {
-    content : "";
-    display : block;
-    height  : 60px;
-  }
 
   @media only screen and (min-width : 800px) {
     .textAndImage {

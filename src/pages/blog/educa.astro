@@ -8,6 +8,8 @@ import inscriptionImage from "../../assets/blog/educa/educa-mern-inscription.png
 import modifierImage    from "../../assets/blog/educa/educa-mern-modifier.png"
 import dashboardImage   from "../../assets/blog/educa/educa-mern-dashboard.png"
 import validationImage  from "../../assets/blog/educa/educa-mern-validation.png"
+import Accordion        from "../../components/shared/Accordion.astro";
+import AccordionItem    from "../../components/shared/AccordionItem.astro";
 ---
 
 <ArticleLayout titre="Educa"
@@ -16,7 +18,7 @@ import validationImage  from "../../assets/blog/educa/educa-mern-validation.png"
                src={ heroImage }
                alt="Educa, page d'accueil"
                techstack={ ["AstroJS", "React", "NodeJS", "MongoDB"] }
-               date= "20 Septembre 2023"
+               date="20 Septembre 2023"
                id="article-132356"
 
 >
@@ -38,11 +40,29 @@ import validationImage  from "../../assets/blog/educa/educa-mern-validation.png"
         <li>
             <a href="https://github.com/beuleubeuleu/Educa-MERN" target="_blank">Lien vers le repo github-Expand</a>
         </li>
-        <li>
-            <a href="/projets/educa#TLDR/">TLDR</a>
-        </li>
+
     </ul>
 
+    <Accordion>
+        <AccordionItem header="Too Long Didn't Read">
+            <p>
+                En résumé, le projet "Educa" a été développé pour valider ma certification de développeur web et web
+                mobile. Il
+                suit la méthodologie "Explore, Expand, Extract" de Kent Beck pour évoluer en fonction de la maturité du
+                projet.
+            </p>
+            <p>
+                La phase d'exploration a permis la création d'un blog AstroJS, tandis que la phase d'extension a ajouté
+                de
+                nombreuses fonctionnalités, répondant aux besoins des utilisateurs. Cependant, la phase d'extraction,
+                visant à
+                formaliser les connaissances acquises, n'a pas été menée à bien en raison de contraintes de temps et de
+                ressources. Malgré cela, le projet illustre les défis et les opportunités du développement web,
+                soulignant
+                l'importance de l'adaptation dans le processus de développement.
+            </p>
+        </AccordionItem>
+    </Accordion>
 
     <p>
         Educa est le projet que j'ai développé pour valider ma certification développeur web•web mobile. Je me met
@@ -196,18 +216,7 @@ import validationImage  from "../../assets/blog/educa/educa-mern-validation.png"
         gérer les contraintes dans le cadre d'un projet étudiant, où les idées et les objectifs évoluent en fonction des
         ressources disponibles.
     </p>
-    <h2 id="TLDR">Too Long Didn't Read:</h2>
-    <p>
-        En résumé, le projet "Educa" a été développé pour valider ma certification de développeur web et web mobile. Il
-        suit la méthodologie "Explore, Expand, Extract" de Kent Beck pour évoluer en fonction de la maturité du projet.
-    </p>
-    <p>
-        La phase d'exploration a permis la création d'un blog AstroJS, tandis que la phase d'extension a ajouté de
-        nombreuses fonctionnalités, répondant aux besoins des utilisateurs. Cependant, la phase d'extraction, visant à
-        formaliser les connaissances acquises, n'a pas été menée à bien en raison de contraintes de temps et de
-        ressources. Malgré cela, le projet illustre les défis et les opportunités du développement web, soulignant
-        l'importance de l'adaptation dans le processus de développement.
-    </p>
+
 </ArticleLayout>
 
 <style>
@@ -271,6 +280,7 @@ import validationImage  from "../../assets/blog/educa/educa-mern-validation.png"
     position   : relative;
     margin-top : 60px;
   }
+
   #TLDR::before {
     content : "";
     display : block;
@@ -278,10 +288,11 @@ import validationImage  from "../../assets/blog/educa/educa-mern-validation.png"
   }
 
   .links {
-      margin-bottom: 2em;
+    margin-bottom : 2em;
   }
+
   .links li {
-      margin-top : .2em;
+    margin-top : .2em;
   }
 
   @media only screen and (min-width : 800px) {

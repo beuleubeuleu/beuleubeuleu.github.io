@@ -26,10 +26,31 @@ import Accordion     from "../../components/shared/Accordion.astro";
         <li>
             <a href="https://github.com/beuleubeuleu/no-hasba">Lien vers le repo github</a>
         </li>
-        <li>
-            <a href="/projets/nohasba#TLDR/">TLDR</a>
-        </li>
     </ul>
+
+    <Accordion >
+        <AccordionItem header="Too Long Didn't Read">
+            <p>
+                NoHasba est un projet personnel développé pendant ma formation en développement web et mobile. Il a été
+                l'occasion d'explorer diverses technologies, notamment une base de données relationnelle et l'inversion de
+                dépendance. L'application permet de gérer des groupes de dépenses, même si elle n'est pas abouti sur le plan de
+                l'interface utilisateur.
+            </p>
+            <p>
+                J'ai introduit l'inversion de dépendance en utilisant une interface "Trigroup" avec des implémentations
+                spécifiques pour le stockage en JSON ou en SQL, offrant une flexibilité accrue et une modularité au projet. Cela
+                a permis d'améliorer la maintenabilité et la qualité du code tout en préparant le terrain pour de futures
+                évolutions.
+            </p>
+            <p>
+                j'ai choisi MySQL pour la base de données, ce qui a nécessité de créer des tables interconnectées pour stocker
+                les informations sur les groupes, les utilisateurs et les dépenses. J'ai également mis en place des migrations
+                SQL pour gérer les évolutions de la structure de la base de données. <br>
+                Enfin, une partie essentielle du projet est l'algorithme de calcul des dettes entre les membres d'un groupe,
+                expliqué en détail.
+            </p>
+        </AccordionItem>
+    </Accordion>
 
     <p>
         NoHasba est un projet que j'ai développé pendant ma formation développeur web•web mobile sur mon temps libre. Le
@@ -265,26 +286,7 @@ import Accordion     from "../../components/shared/Accordion.astro";
         Cette transition a également renforcé la qualité du code en séparant clairement les responsabilités et en
         permettant une meilleure gestion des erreurs, tout en préservant la cohérence et la stabilité du projet.
     </p>
-    <h2 id="TLDR">Too Long Didn't Read</h2>
-    <p>
-        NoHasba est un projet personnel développé pendant ma formation en développement web et mobile. Il a été
-        l'occasion d'explorer diverses technologies, notamment une base de données relationnelle et l'inversion de
-        dépendance. L'application permet de gérer des groupes de dépenses, même si elle n'est pas abouti sur le plan de
-        l'interface utilisateur.
-    </p>
-    <p>
-        J'ai introduit l'inversion de dépendance en utilisant une interface "Trigroup" avec des implémentations
-        spécifiques pour le stockage en JSON ou en SQL, offrant une flexibilité accrue et une modularité au projet. Cela
-        a permis d'améliorer la maintenabilité et la qualité du code tout en préparant le terrain pour de futures
-        évolutions.
-    </p>
-    <p>
-        j'ai choisi MySQL pour la base de données, ce qui a nécessité de créer des tables interconnectées pour stocker
-        les informations sur les groupes, les utilisateurs et les dépenses. J'ai également mis en place des migrations
-        SQL pour gérer les évolutions de la structure de la base de données. <br>
-        Enfin, une partie essentielle du projet est l'algorithme de calcul des dettes entre les membres d'un groupe,
-        expliqué en détail.
-    </p>
+
 </ArticleLayout>
 
 <style>
@@ -331,16 +333,6 @@ import Accordion     from "../../components/shared/Accordion.astro";
     margin : auto;
   }
 
-  #TLDR {
-    position   : relative;
-    margin-top : 60px;
-  }
-
-  #TLDR::before {
-    content : "";
-    display : block;
-    height  : 60px;
-  }
 
   code {
     background    : #DDD;
