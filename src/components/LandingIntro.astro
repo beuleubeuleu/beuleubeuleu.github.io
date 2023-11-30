@@ -1,14 +1,14 @@
 ---
 import { projetEnCours } from "../data/projetEnCours";
-import ArticleCard    from "./blog/ArticleCard.astro";
-import { Image }      from "astro:assets";
+import ArticleCard       from "./blog/ArticleCard.astro";
+import { Image }         from "astro:assets";
 ---
 <section>
     <div class="fade">
         <h2>Projets en cours</h2>
         <div class="container">
-          { projetEnCours.map(article =>
-                  <div class="projet">
+          { projetEnCours.map((article, index) =>
+                  <div class=`projet fade${ index }`>
 
                       <ArticleCard title={ article.titre }
                                    desc={ article.description }
@@ -17,7 +17,8 @@ import { Image }      from "astro:assets";
                                    type={ article.type }
                                    id={ article.id }/>
 
-                      { article.href? <a href={ article.href }> Voir l'article</a>: <p>Article disponible prochainement...</p> }
+                    { article.href?
+                      <a href={ article.href }> Voir l'article</a>: <p>Article disponible prochainement...</p> }
                   </div>) }
         </div>
     </div>
@@ -35,7 +36,7 @@ import { Image }      from "astro:assets";
 
 <style>
   section {
-    margin-top : 15em;
+    margin-top : 8em;
   }
 
   .projet {
@@ -53,10 +54,10 @@ import { Image }      from "astro:assets";
   }
 
   .container {
-      display : flex;
-      flex-wrap: wrap;
-      justify-content : center;
-      align-items : flex-start;
+    display         : flex;
+    flex-wrap       : wrap;
+    justify-content : center;
+    align-items     : flex-start;
   }
 
   .fade {
@@ -64,18 +65,102 @@ import { Image }      from "astro:assets";
     animation-timeline : view();
     animation-range    : cover 0% cover 70%
   }
-
-  @keyframes fade {
-    0% {
-      opacity   : 0;
-      transform : translateY(500%);
-    }
-    40% {
-      opacity   : 1;
-      transform : translateY(0);
-    }
-    100% {
-      opacity : 1;
-    }
+  .fade0 {
+    animation          : fade0 both;
+    animation-timeline : view();
+    animation-range    : cover 0% cover 70%
   }
+
+  .fade1 {
+    animation          : fade1 both;
+    animation-timeline : view();
+    animation-range    : cover 0% cover 70%
+  }
+
+  .fade2 {
+    animation          : fade2 both;
+    animation-timeline : view();
+    animation-range    : cover 0% cover 70%
+  }
+
+  .fade3 {
+    animation          : fade3 both;
+    animation-timeline : view();
+    animation-range    : cover 0% cover 70%
+  }
+
+  @media (min-width:1200px) {
+      @keyframes fade {
+          0% {
+              opacity   : 0;
+              transform : translateY(500%);
+          }
+          50% {
+              opacity   : 1;
+              transform : translateY(0);
+          }
+          100% {
+              opacity : 1;
+
+          }
+      }
+
+      @keyframes fade3 {
+          0% {
+              opacity   : 0;
+              transform : translateY(500%);
+          }
+          40% {
+              opacity   : 1;
+              transform : translateY(200%);
+          }
+          100% {
+              opacity   : 1;
+              transform : translateY(0);
+          }
+      }
+
+      @keyframes fade0 {
+          0% {
+              opacity   : 0;
+              transform : translateY(500%);
+          }
+          30% {
+              opacity   : 1;
+              transform : translateY(0);
+          }
+          100% {
+              opacity : 1;
+          }
+      }
+
+      @keyframes fade1 {
+          0% {
+              opacity   : 0;
+              transform : translateY(500%);
+          }
+          60% {
+              opacity   : 1;
+              transform : translateY(0);
+          }
+          100% {
+              opacity : 1;
+          }
+      }
+
+      @keyframes fade2 {
+          0% {
+              opacity   : 0;
+              transform : translateY(500%);
+          }
+          90% {
+              opacity   : 1;
+              transform : translateY(0);
+          }
+          100% {
+              opacity : 1;
+          }
+      }
+  }
+
 </style>
