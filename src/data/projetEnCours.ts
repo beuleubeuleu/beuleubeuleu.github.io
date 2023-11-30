@@ -1,7 +1,5 @@
 import aoc2023Home from "../assets/blog/aoc2023/aoc2023-home.png";
-import atikeHome   from "../assets/blog/atike/atike-home.png";
-import nohasbaHome from "../assets/blog/nohasba/nohasba-home.png";
-import educaHome   from "../assets/blog/educa/educa-home.png";
+
 
 export const projetEnCours = [
   {
@@ -26,7 +24,7 @@ export const projetEnCours = [
     titre: "Habit/Goal Tracker",
     techStack: ["Spring"],
     href: "",
-    img: nohasbaHome,
+    img: "",
     description: "Découverte DDD",
     type: "Projet",
     id: "wip-123424"
@@ -39,5 +37,14 @@ export const projetEnCours = [
     description: "Principes SOLID",
     type: "Expérience/Projet",
     id: "wip-534153"
-  }
+  }/*,
+  {
+    titre: "Framework d'apprentissage",
+    techStack: [],
+    href: "",
+    img: "",
+    description: "DDD OpenSource",
+    type: "Expérience/Projet",
+    id: "wip-541247"
+  }*/
 ]

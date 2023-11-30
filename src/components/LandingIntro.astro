@@ -14,6 +14,7 @@ import { Image }         from "astro:assets";
                                    desc={ article.description }
                                    techstack={ article.techStack }
                                    url={ article.href }
+                                   img={ article.img? article.img: undefined }
                                    type={ article.type }
                                    id={ article.id }/>
 
@@ -28,6 +29,7 @@ import { Image }         from "astro:assets";
             <li>stopped school early?</li>
             <li>working</li>
             <li>dev certif on the side</li>
+            <li>decouverte clean code/ software craftsmanship</li>
             <li>Simplon RNCP niveau 5</li>
             <li>Opquast expert</li>
         </ul>
@@ -48,119 +50,121 @@ import { Image }         from "astro:assets";
 
     display         : flex;
     flex-direction  : column;
-    gap             : 1em;
     justify-content : center;
     align-items     : flex-start;
   }
 
   .container {
-    display         : flex;
-    flex-wrap       : wrap;
-    justify-content : center;
+    display         : grid;
+    justify-content : space-around;
     align-items     : flex-start;
+    grid-template-columns   : repeat(auto-fit, 288px)
   }
 
   .fade {
     animation          : fade both;
     animation-timeline : view();
-    animation-range    : cover 0% cover 70%
+    animation-range    : cover 20% cover 30%
   }
+
   .fade0 {
     animation          : fade0 both;
     animation-timeline : view();
-    animation-range    : cover 0% cover 70%
+    animation-range    : cover 20% cover 30%
   }
 
   .fade1 {
     animation          : fade1 both;
     animation-timeline : view();
-    animation-range    : cover 0% cover 70%
+    animation-range    : cover 20% cover 30%
   }
 
   .fade2 {
     animation          : fade2 both;
     animation-timeline : view();
-    animation-range    : cover 0% cover 70%
+    animation-range    : cover 20% cover 30%
   }
 
   .fade3 {
     animation          : fade3 both;
     animation-timeline : view();
-    animation-range    : cover 0% cover 70%
+    animation-range    : cover 20% cover 30%
   }
 
-  @media (min-width:1200px) {
-      @keyframes fade {
-          0% {
-              opacity   : 0;
-              transform : translateY(500%);
-          }
-          50% {
-              opacity   : 1;
-              transform : translateY(0);
-          }
-          100% {
-              opacity : 1;
-
-          }
+  @media (min-width : 1200px) {
+    @keyframes fade {
+      0% {
+        opacity   : 0;
+        transform : translateY(50%);
       }
-
-      @keyframes fade3 {
-          0% {
-              opacity   : 0;
-              transform : translateY(500%);
-          }
-          40% {
-              opacity   : 1;
-              transform : translateY(200%);
-          }
-          100% {
-              opacity   : 1;
-              transform : translateY(0);
-          }
+      100% {
+        opacity : 1;
       }
+    }
 
-      @keyframes fade0 {
-          0% {
-              opacity   : 0;
-              transform : translateY(500%);
-          }
-          30% {
-              opacity   : 1;
-              transform : translateY(0);
-          }
-          100% {
-              opacity : 1;
-          }
+    @keyframes fade0 {
+      0% {
+        opacity   : 0;
+        transform : translateY(100%);
       }
+      60% {
+        opacity : 1;
+      }
+      100% {
+        opacity : 1;
+      }
+    }
 
-      @keyframes fade1 {
-          0% {
-              opacity   : 0;
-              transform : translateY(500%);
-          }
-          60% {
-              opacity   : 1;
-              transform : translateY(0);
-          }
-          100% {
-              opacity : 1;
-          }
+    @keyframes fade1 {
+      0% {
+        opacity   : 0;
+        transform : translateY(100%);
       }
+      30% {
+        opacity   : 0;
+        transform : translateY(100%);
+      }
+      100% {
+        opacity : 1;
+      }
+    }
 
-      @keyframes fade2 {
-          0% {
-              opacity   : 0;
-              transform : translateY(500%);
-          }
-          90% {
-              opacity   : 1;
-              transform : translateY(0);
-          }
-          100% {
-              opacity : 1;
-          }
+    @keyframes fade2 {
+      0% {
+        opacity   : 0;
+        transform : translateY(100%);
       }
+      20% {
+        opacity   : 0;
+        transform : translateY(100%);
+      }
+      70% {
+        opacity   : 1;
+        transform : translateY(0);
+      }
+      100% {
+        opacity : 1;
+      }
+    }
+
+    @keyframes fade3 {
+      0% {
+        opacity   : 0;
+        transform : translateY(100%);
+      }
+      50% {
+        opacity   : 0;
+        transform : translateY(100%);
+      }
+      100% {
+        opacity   : 1;
+        transform : translateY(0);
+      }
+      100% {
+        opacity   : 1;
+        transform : translateY(0);
+      }
+    }
   }
 
 </style>
