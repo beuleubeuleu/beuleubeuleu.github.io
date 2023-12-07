@@ -4,15 +4,15 @@ import educaHome   from "../assets/blog/educa/educa-home.png";
 import nohasbaHome from "../assets/blog/nohasba/nohasba-home.png";
 
 export const myArticles = [
-  {
-    titre: "Advent of Code 2023",
-    techStack: ["Java", "Golang", "Haskell"],
-    href: "/blog/aoc2023/",
-    img: aoc2023Home,
-    description: "Paradigme de programmation",
-    type: "Expérience",
-    id:"article-412442"
-  },
+  // {
+  //   titre: "Advent of Code 2023",
+  //   techStack: ["Java", "Golang", "Haskell"],
+  //   href: "/blog/aoc2023/",
+  //   img: aoc2023Home,
+  //   description: "Paradigme de programmation",
+  //   type: "Expérience",
+  //   id:"article-412442"
+  // },
   {
     titre: "Atikè",
     techStack: ["AstroJS", "AWS"],

@@ -19,21 +19,23 @@ import { Image }         from "astro:assets";
                                    id={ article.id }/>
 
                     { article.href?
-                      <a href={ article.href }> Voir l'article</a>: <p>Article disponible prochainement...</p> }
+                      <a href={ article.href }> Voir l'article</a>:
+                      <p class="italic">Article disponible prochainement...</p> }
                   </div>) }
         </div>
     </div>
-    <div>
-        <h2>parcours</h2>
-        <ul>
-            <li>stopped school early?</li>
-            <li>working</li>
-            <li>dev certif on the side</li>
-            <li>decouverte clean code/ software craftsmanship</li>
-            <li>Simplon RNCP niveau 5</li>
-            <li>Opquast expert</li>
-        </ul>
-    </div>
+  {/*
+   <div>
+   <h2>parcours</h2>
+   <ul>
+   <li>stopped school early?</li>
+   <li>working</li>
+   <li>dev certif on the side</li>
+   <li>decouverte clean code/ software craftsmanship</li>
+   <li>Simplon RNCP niveau 5</li>
+   <li>Opquast expert</li>
+   </ul>
+   </div>*/ }
 </section>
 
 <style>
@@ -52,13 +54,14 @@ import { Image }         from "astro:assets";
     flex-direction  : column;
     justify-content : center;
     align-items     : flex-start;
+    gap             : .5em;
   }
 
   .container {
-    display         : grid;
-    justify-content : space-around;
-    align-items     : flex-start;
-    grid-template-columns   : repeat(auto-fit, 288px)
+    display               : grid;
+    justify-content       : space-around;
+    align-items           : flex-start;
+    grid-template-columns : repeat(auto-fit, 288px)
   }
 
   .fade {
