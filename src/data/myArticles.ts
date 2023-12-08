@@ -6,7 +6,7 @@ import nohasbaHome from "../assets/blog/nohasba/nohasba-home.png";
 export const myArticles = [
   {
     titre: "Advent of Code 2023",
-    techStack: ["Java", "Golang", "Haskell"],
+    techStack: ["Java", "Haskell", "Golang"],
     href: "/blog/aoc2023/",
     img: aoc2023Home,
     description: "Paradigme de programmation",
