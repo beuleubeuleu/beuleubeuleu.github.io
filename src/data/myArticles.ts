@@ -68,11 +68,11 @@ export const myArticles = [
     id: "wip-523425"
   },
    {
-   titre: "Framework d'apprentissage",
+   titre: "La Méthode",
    techStack: [],
    href: "",
    img: "",
-   description: "DDD OpenSource",
+   description: "DDD OpenSource - Framework d'apprentissage",
    type: "Expérience/Projet",
    id: "wip-541247"
    }
