@@ -20,14 +20,26 @@ import { myArticles }  from "../../data/myArticles";
             />
         </Breadcrumbs>
         <h1>Mes articles</h1>
-        <div class="filtre">
-            <a href="/blog/projets">Filter par projets</a>
-            <a href="/blog/experiences">Filter par expériences</a>
-        </div>
+      { /*<div class="filtre">
+       <a href="/blog/projets">Filter par projets</a>
+       <a href="/blog/experiences">Filter par expériences</a>
+       </div>*/ }
         <section>
-          { myArticles.map(article =>
+          { myArticles.filter(article => article.id.startsWith("article")).map(article =>
                   <ArticleCard title={ article.titre }
-                               img={ article.img }
+                               img={ article.img? article.img: undefined }
+                               desc={ article.description }
+                               techstack={ article.techStack }
+                               url={ article.href }
+                               type={ article.type }
+                               id={ article.id }/>
+          ) }
+        </section>
+        <h2 class="italic">Disponible Prochainement...</h2>
+        <section>
+          { myArticles.filter(article => article.id.startsWith("wip")).map(article =>
+                  <ArticleCard title={ article.titre }
+                               img={ article.img? article.img: undefined }
                                desc={ article.description }
                                techstack={ article.techStack }
                                url={ article.href }
@@ -48,6 +60,10 @@ import { myArticles }  from "../../data/myArticles";
   h1 {
     font-size : 2em;
     color     : var(--textColor);
+  }
+
+  h2 {
+      margin-top : 2em;
   }
 
   section {
