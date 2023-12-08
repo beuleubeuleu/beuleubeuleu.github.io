@@ -1,5 +1,6 @@
 ---
 import Socials from "../Socials.astro";
+import {Image} from 'astro:assets'
 
 const menuItems = [
   {
@@ -26,10 +27,24 @@ const menuItems = [
     <section class="footer-cards">
 
         <div class="footer-card">
+            <Image
+                src="/logo/email.svg"
+                alt=""
+                width="40"
+                height="40"
+                format="svg"
+            />
             <p class="footer-card__title">Email</p>
             <a href="mailto:billyklotz789@gmail.com" class="card-info">billyklotz789@gmail.com</a>
+            <Image
+                src="/logo/location.svg"
+                alt=""
+                width="40"
+                height="40"
+                format="svg"
+            />
             <p class="footer-card__title">Localisation</p>
-            <p class="card-info">France, Ile-de-France</p>
+            <p class="card-info">Ile-de-France, France</p>
         </div>
 
         <div class="footer-card">
@@ -63,18 +78,18 @@ const menuItems = [
 
     display         : flex;
     flex-direction  : column;
-    justify-content : flex-start;
+    justify-content : center;
     align-items     : center;
   }
 
   .footer-card__title {
     font-size    : 1.3em;
-    margin-block : 0.6em;
+    margin-bottom : 0.2em;
     font-weight  : 600;
   }
 
   .card-info {
-    margin-block : 0.1em;
+    margin-bottom : 0.8em;
   }
 
   footer ul {
